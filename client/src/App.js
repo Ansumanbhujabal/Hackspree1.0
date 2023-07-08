@@ -11,11 +11,14 @@ function App() {
 
   const getUser = async () => {
     try {
-      const url = `${process.env.REACT_APP_API_URL}/auth/login/success`;
-      const { data } = await axios.get(url, { withCredentials: true });
-      setUser(data.user._json);
-    } catch (err) {
-      console.log(err);
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/auth/login/success`,
+        { withCredentials: true }
+      );
+      const { user } = response.data;
+      setUser(user);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -34,11 +37,11 @@ function App() {
         <Route
           exact
           path="/login"
-          element={user ? <Navigate to="/" /> : <Login />}
+          element={user ? <Navigate to="/" /> : <Login getUser={getUser} />}
         />
         <Route
           path="/signup"
-          element={user ? <Navigate to="/" /> : <Signup />}
+          element={user ? <Navigate to="/" /> : <Signup getUser={getUser} />}
         />
       </Routes>
     </div>

@@ -5,13 +5,25 @@ const passport = require("passport");
 const authRoute = require("./routes/auth");
 const cookieSession = require("cookie-session");
 const passportStrategy = require("./passport");
+const mongoose = require("mongoose");
+
 const app = express();
+
+// Connect to MongoDB
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => {
+    console.log("Dbconnet");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 app.use(
   cookieSession({
     name: "session",
     keys: ["cyberwolve"],
-    maxAge: 24 * 60 * 60 * 100,
+    maxAge: 24 * 60 * 60 * 1000,
   })
 );
 
@@ -29,4 +41,4 @@ app.use(
 app.use("/auth", authRoute);
 
 const port = process.env.PORT || 8080;
-app.listen(port, () => console.log(`Listenting on port ${port}...`));
+app.listen(port, () => console.log(`Listening on port ${port}...`));

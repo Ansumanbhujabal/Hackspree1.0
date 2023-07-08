@@ -1,5 +1,6 @@
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const passport = require("passport");
+const User = require("./model/User");
 
 passport.use(
   new GoogleStrategy(
@@ -11,25 +12,46 @@ passport.use(
       resave: false,
       saveUninitialized: false,
     },
-    function (accessToken, refreshToken, profile, callback) {
-      callback(null, profile);
+    async (accessToken, refreshToken, profile, callback) => {
+      try {
+        let user = await User.findOne({ googleId: profile.id });
+
+        if (!user) {
+          user = new User({
+            googleId: profile.id,
+            name: profile.displayName,
+            email: profile.emails[0].value,
+            picture: profile.photos[0].value,
+          });
+
+          await user
+            .save()
+            .then((data) => {
+              console.log("saved");
+            })
+            .catch(() => {
+              console.log("failed");
+            });
+        }
+
+        callback(null, user);
+      } catch (error) {
+        callback(error, null);
+      }
     }
   )
 );
 
 passport.serializeUser((user, done) => {
-  done(null, user);
+  done(null, user.id);
 });
 
-passport.deserializeUser((user, done) => {
-  done(null, user);
+passport.deserializeUser((id, done) => {
+  User.findById(id)
+    .then((user) => {
+      done(null, user);
+    })
+    .catch((err) => {
+      done(err, null);
+    });
 });
-
-// app.use(session({
-//   secret: 'your-secret-key',
-//   resave: false,
-//   saveUninitialized: false
-// }));
-
-// app.use(passport.initialize());
-// app.use(passport.session());
