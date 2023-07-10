@@ -4,6 +4,11 @@ import axios from "axios";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Layout from "./pages/Layout/Layout";
+import LandingPage from "./pages/LandingPage";
+import CommunityCal from "./pages/CommunityCal";
+import NoPage from "./pages/NoPage";
+import UserLayout from "./pages/UserLayout";
 import "./App.css";
 
 function App() {
@@ -27,22 +32,38 @@ function App() {
   }, []);
 
   return (
-    <div className="container">
+    <div className="App">
       <Routes>
-        <Route
+
+      <Route
           exact
           path="/"
-          element={user ? <Home user={user} /> : <Navigate to="/login" />}
+          element={user ? <UserLayout user={user} /> : <Layout /> }>
+  
+        <Route
+          index element={user ? <Home user={user} /> : <LandingPage />}
+          />
+
+        <Route
+          exact
+          path="/community-calendar"
+          element={user ? <CommunityCal user={user} /> : <LandingPage />}
         />
+
         <Route
           exact
           path="/login"
           element={user ? <Navigate to="/" /> : <Login getUser={getUser} />}
         />
+
         <Route
           path="/signup"
           element={user ? <Navigate to="/" /> : <Signup getUser={getUser} />}
         />
+
+        <Route path="*" element={<NoPage />} />
+
+        </Route>
       </Routes>
     </div>
   );
