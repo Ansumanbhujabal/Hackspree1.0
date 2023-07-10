@@ -2,6 +2,7 @@ import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
+import UserNav from "../../components/UserNav";
 
 function UserLayout (userDetails) {
 
@@ -31,7 +32,17 @@ function UserLayout (userDetails) {
       </Container>
     </Navbar>
       <div className="App-header">
+        <div className="container">
+          <div className="row">
+            <div className="col-8" style={{ height: '90vh', overflow: 'scroll'}}>
       <Outlet />
+      </div>
+      <div className="col-4">
+        <UserNav />
+
+      </div>
+      </div>
+      </div>
       </div>
         </>
     );
