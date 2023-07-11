@@ -48,3 +48,12 @@
   border: none;
   cursor: pointer;
 }
+
+.event-stream {
+  overflow: scroll;
+  height: 80vh
+}
+
+#category-tab {
+  background-color: aqua;
+}
