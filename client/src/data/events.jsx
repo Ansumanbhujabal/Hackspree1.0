@@ -1,8 +1,9 @@
 const events = [
     {
         title: "Non-Perishable Food Drive",
-        date: new Date('August 2, 2023'),
+        date: "Sep 25, 2023",
         eventType: "Donation Drive",
+        header: "donation-drive",
         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
         admission: {type: "Free", cost: 0, proceeds: ""},
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
@@ -11,8 +12,9 @@ const events = [
     },
     {
         title: "Taíno Heritage Festival",
-        date: new Date('August 2, 2023'),
+        date: "Sep 25, 2023",
         eventType: "Heritage Celebration",
+        header: "heritage-celebration",
         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
         admission: {type: "Suggested Donation", cost: 5-15, proceeds: "Benefit the Taíno Heritage Society"},
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
@@ -21,8 +23,9 @@ const events = [
     },
     {
         title: "Lincoln Square Farmer's Market",
-        date: new Date('August 2, 2023'),
+        date: "Sep 25, 2023",
         eventType: "Farmer's Market",
+        header: "farmers-market",
         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
         admission: {type: "Free", cost: 0, proceeds: ""},
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
@@ -31,8 +34,9 @@ const events = [
     },
     {
         title: "Fellowship Covenant Church Hot Meal Night",
-        date: new Date('August 2, 2023'),
+        date: "Sep 25, 2023",
         eventType: "Food Pantry/Hot Meals",
+        header: "food-pantry-hot-meals",
         ageRanges: ["For Kids", "Family-friendly", "Ages 13-18", "Adults"],
         admission: {type: "Free", cost: 0, proceeds: ""},
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
@@ -41,8 +45,9 @@ const events = [
     },
     {
         title: "Hyde Park Festival",
-        date: new Date('August 2, 2023'),
+        date: "Sep 25, 2023",
         eventType: "Festival",
+        header: "festival",
         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
         admission: {type: "Entry Price", cost: 10, proceeds: "Proceeds go to Hyde Park Festival Cooperative and are used to pay performers, staff, and vendors."},
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
@@ -51,8 +56,9 @@ const events = [
     },
     {
         title: "Sewing Circle at Folwell West Library",
-        date: new Date('August 2, 2023'),
+        date: "Sep 25, 2023",
         eventType: "Skill Share",
+        header: "skill-share",
         ageRanges: ["Ages 13-18", "Adults"],
         admission: {type: "Free", cost: 0, proceeds: ""},
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
@@ -61,8 +67,9 @@ const events = [
     },
     {
         title: "Hartigan Beach Park Cleanup",
-        date: new Date('August 2, 2023'),
+        date: "Sep 25, 2023",
         eventType: "Service Project",
+        header: "service-project",
         ageRanges: ["Ages 13-18", "Adults"],
         admission: {type: "Free", cost: 0, proceeds: ""},
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
@@ -71,8 +78,9 @@ const events = [
     },
     {
         title: "Voter Registration Rally",
-        date: new Date('August 2, 2023'),
+        date: "Sep 25, 2023",
         eventType: "Action Event",
+        header: "action-event",
         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
         admission: {type: "Free", cost: 0, proceeds: ""},
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
@@ -81,8 +89,9 @@ const events = [
     },
     {
         title: "Drag Story Hour at Ericsson Heights Library",
-        date: new Date('August 2, 2023'),
+        date: "Sep 25, 2023",
         eventType: "Entertainment",
+        header: "entertainment",
         ageRanges: ["For Kids"],
         admission: {type: "Free", cost: 0, proceeds: ""},
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
@@ -90,6 +99,7 @@ const events = [
 
     }
 ]
+
 
 /**
  ** Types of events:
@@ -128,12 +138,12 @@ const events = [
  * Donation Drive => Blue 85DAFF
  * Fundraiser => Green 70E067
  * Heritage Celebration => Orange F58D3C
- * Farmer's Market => 0B9B1D
+ * Farmer's Market => 45913E
  * Food Pantry/Hot Meals => Red DF3E08
  * Festival => Yellow FFDB21
  * Skill Share => Lilac B068A9
  * Service Project => Royal Blue 3F4AAD
- * Action Event => Gold C37200
+ * Action Event => Gold FFAF07
  * Entertainment => Purple 8700C3
  */
 

@@ -55,5 +55,11 @@
 }
 
 #category-tab {
-  background-color: aqua;
+  background-color: #45913E;
+}
+
+#event-card-header {
+  height: 300px;
+  object-fit: cover;
+  
 }

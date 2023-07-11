@@ -7,10 +7,16 @@ function Home(userDetails) {
     <>
     <h1 className="display">Your Upcoming Events:</h1>
     <div className="event-stream">
-    <EventCard />
-    <EventCard />
-    <EventCard />
-    <EventCard />
+    {events.map((event, index) => {
+          return (
+                <EventCard
+                  event={event}
+                  {...event}
+                  key={index}
+                />
+              
+          );
+        })}
     </div>
     </>
   );
