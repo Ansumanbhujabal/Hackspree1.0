@@ -27,10 +27,10 @@ function EventModal(props) {
 
         </Modal.Body>
         <Modal.Footer>
-        <OverlayHover option={"Join Event"} tooltip={"Add this event to your upcoming events"} />
-          <OverlayHover option={"Remove Event"} tooltip={"Remove this event from your upcoming events"} />
-          <OverlayHover option={"Delete Event"} tooltip={"Delete this event"} />
-          <OverlayHover option={"Edit Event"} tooltip={"Edit this event's details"} onClick={handleClose} />
+        <OverlayHover option={"Join Event"} btnColor={"success"} tooltip={"Add this event to your upcoming events"} clickProp={handleClose}/>
+          <OverlayHover option={"Remove Event"} btnColor={"danger"} tooltip={"Remove this event from your upcoming events"} clickProp={handleClose}/>
+          <OverlayHover option={"Delete Event"} btnColor={"danger"} tooltip={"Delete this event"} clickProp={handleClose}/>
+          <OverlayHover option={"Edit Event"} btnColor={"primary"} tooltip={"Edit this event's details"} clickProp={handleClose} />
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>

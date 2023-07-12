@@ -12,6 +12,7 @@ import { useState } from 'react';
 function NewEventForm() {
   const [eventTitle, setEventTitle] = useState("");
   const [eventType, setEventType] = useState("");
+  const [eventHeader, setEventheader] = useState("");
   const [ageRanges, setAgeRanges] = useState([]);
   const [eventDiscription, setEventDescription] = useState("");
   const [startDate, setStartDate] = useState({});
