@@ -26,8 +26,8 @@ const ColoredDateCellWrapper = ({ children }) =>
     {
         title: "Non-Perishable Food Drive",
         date: "Sep 25, 2023",
-        start: new Date(2023, 6, 1, 12, 30),
-        end: new Date(2023, 6, 1, 3, 30),
+        start: new Date('2023-07-12T13:45:00-05:00'),
+        end: new Date('2023-07-12T14:00:00-05:00'),
         eventType: "Donation Drive",
         header: "donation-drive",
         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
@@ -39,8 +39,8 @@ const ColoredDateCellWrapper = ({ children }) =>
     {
         title: "Colorful Futures Project Chicago Fundraiser 2023",
         date: "Sep 25, 2023",
-        start: new Date(2023, 6, 1, 1),
-        end: new Date(2023, 6, 1, 3, 30),
+        start: new Date('2023-07-03 4:30 pm'),
+        end: new Date('2023-07-03 12:30 am'),
         eventType: "Fundraiser",
         header: "fundraiser",
         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
@@ -52,8 +52,8 @@ const ColoredDateCellWrapper = ({ children }) =>
     {
         title: "Taíno Heritage Festival",
         date: "Sep 25, 2023",
-        start: new Date(2023, 6, 1, 12, 30),
-        end: new Date(2023, 6, 1, 3, 30),
+        start: new Date('2023-07-15 10:00 am'),
+        end: new Date('2023-07-15 5:00 pm'),
         eventType: "Heritage Celebration",
         header: "heritage-celebration",
         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
@@ -65,10 +65,7 @@ const ColoredDateCellWrapper = ({ children }) =>
     
 ]
 
-/**
- * We are defaulting the localizer here because we are using this same
- * example on the main 'About' page in Storybook
- */
+
 export default function Basic({
   localizer = mLocalizer,
   showDemoLink = false,
@@ -86,7 +83,7 @@ export default function Basic({
 //     []
 //   )
 
-const defaultDate = useMemo(() => new Date(2023, 7, 1), [])
+const defaultDate = useMemo(() => new Date('2023, 7, 1'), [])
 
   return (
     <Fragment>
@@ -96,9 +93,10 @@ const defaultDate = useMemo(() => new Date(2023, 7, 1), [])
         defaultDate={defaultDate}
           localizer={localizer}
           events={events}
+          views={['month', 'week']}
         //   startAccessor="start"
         //   endAccessor="end"
-          style={{ height: '100vh' }}
+          style={{ height: '100vh', width: '90vw' }}
           popup
         />
       </div>
