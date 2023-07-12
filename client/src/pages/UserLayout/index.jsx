@@ -23,6 +23,7 @@ function UserLayout (userDetails) {
             <NavDropdown title="Account" id="basic-nav-dropdown">
             <NavDropdown.Item><NewEventModal /></NavDropdown.Item>
             <NavDropdown.Item><UpdateProfile /></NavDropdown.Item>
+            <LinkContainer to="/your-events"><NavDropdown.Item>Your Events</NavDropdown.Item></LinkContainer>
               <NavDropdown.Divider />
               <NavDropdown.Item onClick={logout}>
                 Log Out

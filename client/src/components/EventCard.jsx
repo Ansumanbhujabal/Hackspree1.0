@@ -45,7 +45,9 @@ function EventCard(props) {
         <Card.Text>
         <span><strong>Date:</strong></span> {date}
           <br></br>
-          <span><strong>Time:</strong></span> {date}
+          <span><strong>Start Time:</strong></span> {date}
+          <br></br>
+          <span><strong>End Time:</strong></span> {date}
           <br></br>
           <span><strong>Event Description: </strong></span> <div id='short-description'>{description}</div>
         <br></br>

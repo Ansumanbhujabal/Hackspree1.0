@@ -30,6 +30,10 @@ function UpdateProfile() {
         <Form.Control type="password" placeholder="Password" />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formGroupEmail">
+        <Form.Label>Change Username</Form.Label>
+        <Form.Control type="text" placeholder="New username" />
+        </Form.Group>
+          <Form.Group className="mb-3" controlId="formGroupEmail">
         <Form.Label>Change Profile Photo</Form.Label>
         <Form.Control type="text" placeholder="Image URL" />
         </Form.Group>

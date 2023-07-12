@@ -9,6 +9,7 @@ import LandingPage from "./pages/LandingPage";
 import CommunityCal from "./pages/CommunityCal";
 import NoPage from "./pages/NoPage";
 import UserLayout from "./pages/UserLayout";
+import YourEvents from "./pages/YourEvents";
 import "./App.css";
 
 function App() {
@@ -48,6 +49,12 @@ function App() {
           exact
           path="/community-calendar"
           element={user ? <CommunityCal user={user} /> : <LandingPage />}
+        />
+
+      <Route
+          exact
+          path="/your-events"
+          element={user ? <YourEvents user={user} /> : <LandingPage />}
         />
 
         <Route

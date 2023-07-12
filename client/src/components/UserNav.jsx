@@ -3,9 +3,12 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import ProfilePhoto from './ProfilePhoto';
 import UpdateProfile from './UpdateProfile';
 import NewEventModal from './NewEventModal';
+import { LinkContainer } from 'react-router-bootstrap';
+import { useSelector } from 'react-redux';
 
 function UserNav(userDetails) {
   const user = userDetails.user;
+  const username = useSelector((store) => store.userdata.username);
   const logout = () => {
     window.open(`${process.env.REACT_APP_API_URL}/auth/logout`, "_self");
   };
@@ -29,10 +32,11 @@ function UserNav(userDetails) {
           </div>
         
         </div>
-        <Card.Text style={{'text-align': 'center'}}>Username</Card.Text>
+        <Card.Text style={{'text-align': 'center'}}>{username}</Card.Text>
         <ListGroup className="list-group-flush">
         <ListGroup.Item><button className="logout-button"><UpdateProfile /></button></ListGroup.Item>
         <ListGroup.Item><button className="logout-button"><NewEventModal /></button></ListGroup.Item>
+        <LinkContainer to="/your-events"><ListGroup.Item><button className="logout-button">Your Events</button></ListGroup.Item></LinkContainer>
         <ListGroup.Item><button className="logout-button" onClick={logout}>
             Log Out
           </button></ListGroup.Item>

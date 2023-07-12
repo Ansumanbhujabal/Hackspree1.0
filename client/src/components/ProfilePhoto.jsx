@@ -1,7 +1,10 @@
+import { useSelector } from "react-redux";
+
 export default function ProfilePhoto() {
+  const profile = useSelector((store) => store.userdata.profilePhoto);
     return (
     
-    <img src="https://images.pexels.com/photos/64219/dolphin-marine-mammals-water-sea-64219.jpeg" className="profile-photo" />
+    <img src={profile} className="profile-photo" />
     );
   }
   
