@@ -1,34 +1,59 @@
-import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+import Card from 'react-bootstrap/Card';
+import { Badge } from 'react-bootstrap';
 
-function EventDetails() {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
+function EventDetails(props) {
+   const { event } = props;
+   const { title, date, eventType, header, ageRanges, description, location } = event;
   return (
-    <>
-      <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button>
+    <Card>
+      
+      <Card.Img variant="top" src={`./images/${header}.png`} id='event-card-header'/>
+      <Card.Header
+      style={{
+        background: eventType === "Donation Drive" ? "#85DAFF" :
+        eventType === "Fundraiser" ? "#70E067" :
+        eventType === "Heritage Celebration" ? "#F58D3C" :
+        eventType === "Farmer's Market" ? "#45913E" :
+        eventType === "Food Pantry/Hot Meals" ? "#DF3E08" :
+        eventType === "Festival" ? "#FFDB21" :
+        eventType === "Skill Share" ? "#B068A9" :
+        eventType === "Service Project" ? "#3F4AAD" :
+        eventType === "Action Event" ? "#FFAF07" :
+        "#8700C3",
+        color: eventType === "Heritage Celebration" || eventType ===  "Farmer's Market" || eventType ===  "Service Project" || eventType ===  "Entertainment" ? "white" :
+        "black"
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </>
+      }}>{eventType}</Card.Header>
+      <Card.Body>
+        <Card.Title>{title}</Card.Title>
+        <div className='age-badges'>
+        {ageRanges.map((ageRange, index) => (
+            
+            <Badge bg={ageRange === 'For Kids' ? 'info'
+            : ageRange === "Family-friendly" ? 'success'
+            : ageRange === "Ages 13-18" ? 'warning'
+            : 'primary'} key={index}>{ageRange}</Badge>
+                
+            ))}
+            </div>
+
+        <Card.Text>
+        <span><strong>Date:</strong></span> {date}
+          <br></br>
+          <span><strong>Time:</strong></span> {date}
+          <br></br>
+          <span><strong>Event Description: </strong></span> {description}
+          <br></br>
+        <br></br>
+          <span><strong>Location:</strong></span> {location}
+
+          {/* create a variant for if the event is in the user's data or not, button is either to add or remove the event */}
+         
+          
+        </Card.Text>
+      </Card.Body>
+    </Card>
   );
 }
 

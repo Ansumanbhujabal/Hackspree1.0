@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-function ProfileModal() {
+function UpdateProfile() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -32,4 +32,4 @@ function ProfileModal() {
   );
 }
 
-export default ProfileModal;
+export default UpdateProfile;
