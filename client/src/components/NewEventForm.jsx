@@ -7,6 +7,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { useState } from 'react';
+import { InputGroup } from 'react-bootstrap';
 
 
 function NewEventForm() {
@@ -15,6 +16,7 @@ function NewEventForm() {
   const [eventHeader, setEventheader] = useState("");
   const [ageRanges, setAgeRanges] = useState([]);
   const [eventDiscription, setEventDescription] = useState("");
+  const [eventPrice, setEventPrice] = useState({})
   const [startDate, setStartDate] = useState({});
   const [endDate, setEndDate] = useState({});
   const [location, setLocation] = useState({});
@@ -25,12 +27,12 @@ function NewEventForm() {
     <Form>
       <Form.Group className="mb-3">
         <Form.Label>Event Title</Form.Label>
-        <Form.Control type="text" placeholder="Event Title" />
+        <Form.Control required type="text" placeholder="Event Title" />
       </Form.Group>
 
       <Form.Group className="mb-3">
       <Form.Label>Event Type</Form.Label>
-      <Form.Select aria-label="Default select example">
+      <Form.Select required aria-label="Default select example">
       <option>Select an Event Type</option>
       <option value="1">Donation Drive</option>
       <option value="2">Fundraiser</option>
@@ -67,6 +69,31 @@ function NewEventForm() {
       <Form.Group className="mb-3">
         <Form.Label>Event Description</Form.Label>
         <Form.Control type="text" as="textarea" rows={3} placeholder="Event Description" />
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label>Event Price</Form.Label>
+        <Form.Select required aria-label="Default select example">
+      <option>Price Type</option>
+      <option value="1">Free</option>
+      <option value="2">Suggested Donation</option>
+      <option value="3">Entry Fee</option>
+    </Form.Select>
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label>Cost</Form.Label>
+        <InputGroup className="mb-3">
+        <InputGroup.Text>$</InputGroup.Text>
+        <Form.Control required aria-label="Amount (to the nearest dollar)" />
+        <InputGroup.Text>.00</InputGroup.Text>
+      </InputGroup>
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label>Proceeds</Form.Label>
+        <Form.Control type="text" as="textarea" rows={3} placeholder="Event Description" />
+        <Form.Text>Optional: Let attendees know where the proceeds are going.</Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3">

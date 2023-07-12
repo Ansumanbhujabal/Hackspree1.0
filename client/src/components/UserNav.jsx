@@ -36,7 +36,7 @@ function UserNav(userDetails) {
         <ListGroup className="list-group-flush">
         <ListGroup.Item><button className="logout-button"><UpdateProfile /></button></ListGroup.Item>
         <ListGroup.Item><button className="logout-button"><NewEventModal /></button></ListGroup.Item>
-        <LinkContainer to="/your-events"><ListGroup.Item><button className="logout-button">Your Events</button></ListGroup.Item></LinkContainer>
+        <LinkContainer to="/your-events"><ListGroup.Item><button className="logout-button">Manage Events</button></ListGroup.Item></LinkContainer>
         <ListGroup.Item><button className="logout-button" onClick={logout}>
             Log Out
           </button></ListGroup.Item>

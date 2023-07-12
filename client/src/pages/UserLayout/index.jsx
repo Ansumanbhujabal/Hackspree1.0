@@ -20,10 +20,12 @@ function UserLayout (userDetails) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
           <LinkContainer to="/community-calendar"><Nav.Link>Calendar</Nav.Link></LinkContainer>
+          <LinkContainer to="/"><Nav.Link>Upcoming</Nav.Link></LinkContainer>
+              <NavDropdown.Divider />
             <NavDropdown title="Account" id="basic-nav-dropdown">
             <NavDropdown.Item><NewEventModal /></NavDropdown.Item>
             <NavDropdown.Item><UpdateProfile /></NavDropdown.Item>
-            <LinkContainer to="/your-events"><NavDropdown.Item>Your Events</NavDropdown.Item></LinkContainer>
+            <LinkContainer to="/your-events"><NavDropdown.Item>Manage Events</NavDropdown.Item></LinkContainer>
               <NavDropdown.Divider />
               <NavDropdown.Item onClick={logout}>
                 Log Out
