@@ -96,7 +96,7 @@ const defaultDate = useMemo(() => new Date('2023, 7, 1'), [])
           views={['month', 'week']}
         //   startAccessor="start"
         //   endAccessor="end"
-          style={{ height: '100vh', width: '90vw' }}
+          style={{ height: '100vh' }}
           popup
         />
       </div>
