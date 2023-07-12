@@ -51,6 +51,7 @@ function EventCard(props) {
         <br></br>
           <span><strong>Location:</strong></span> {location}
           <br></br>
+          <br></br>
         <EventModal event={event} />
          
           

@@ -12,6 +12,16 @@
 
 }
 
+#update-profile-button {
+  padding: 0;
+  margin: 0;
+}
+
+#new-event-click {
+  padding: 0;
+  margin: 0;
+}
+
 #user-header {
   justify-content: center;
   padding-bottom: 2rem;
@@ -65,11 +75,11 @@
 }
 
 #short-description {
-  display: block;
-  word-wrap: break-word;
   overflow: hidden;
-  max-height: 3em;
+  max-width: 100%;
   text-overflow: ellipsis;
+  width: fit-content;
+  white-space: nowrap;
 }
 
 #event-cards {

@@ -1,8 +1,9 @@
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { Outlet } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import UserNav from "../../components/UserNav";
+import UpdateProfile from "../../components/UpdateProfile";
+import NewEventModal from "../../components/NewEventModal";
 
 function UserLayout (userDetails) {
 
@@ -20,8 +21,8 @@ function UserLayout (userDetails) {
           <Nav className="me-auto">
           <LinkContainer to="/community-calendar"><Nav.Link>Calendar</Nav.Link></LinkContainer>
             <NavDropdown title="Account" id="basic-nav-dropdown">
-            <NavDropdown.Item>Create Event</NavDropdown.Item>
-            <NavDropdown.Item>Update Profile</NavDropdown.Item>
+            <NavDropdown.Item><NewEventModal /></NavDropdown.Item>
+            <NavDropdown.Item><UpdateProfile /></NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item onClick={logout}>
                 Log Out

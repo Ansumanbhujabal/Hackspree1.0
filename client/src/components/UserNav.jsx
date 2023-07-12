@@ -1,6 +1,8 @@
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ProfilePhoto from './ProfilePhoto';
+import UpdateProfile from './UpdateProfile';
+import NewEventModal from './NewEventModal';
 
 function UserNav(userDetails) {
   const user = userDetails.user;
@@ -29,8 +31,8 @@ function UserNav(userDetails) {
         </div>
         <Card.Text style={{'text-align': 'center'}}>Username</Card.Text>
         <ListGroup className="list-group-flush">
-        <ListGroup.Item><button className="logout-button">Update Profile</button></ListGroup.Item>
-        <ListGroup.Item><button className="logout-button">Create an Event</button></ListGroup.Item>
+        <ListGroup.Item><button className="logout-button"><UpdateProfile /></button></ListGroup.Item>
+        <ListGroup.Item><button className="logout-button"><NewEventModal /></button></ListGroup.Item>
         <ListGroup.Item><button className="logout-button" onClick={logout}>
             Log Out
           </button></ListGroup.Item>
