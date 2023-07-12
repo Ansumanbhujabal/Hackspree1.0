@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import EventDetails from './EventDetails';
+import OverlayHover from './OverlayHover';
 
 function EventModal(props) {
 
@@ -26,6 +27,10 @@ function EventModal(props) {
 
         </Modal.Body>
         <Modal.Footer>
+        <OverlayHover option={"Join Event"} tooltip={"Add this event to your upcoming events"} />
+          <OverlayHover option={"Remove Event"} tooltip={"Remove this event from your upcoming events"} />
+          <OverlayHover option={"Delete Event"} tooltip={"Delete this event"} />
+          <OverlayHover option={"Edit Event"} tooltip={"Edit this event's details"} onClick={handleClose} />
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>

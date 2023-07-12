@@ -5,20 +5,10 @@ import FormCheckLabel from 'react-bootstrap/FormCheckLabel'
 import moment from 'moment';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
-import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
-import { useState } from 'react';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 
-function NewEventForm() {
-  const [eventTitle, setEventTitle] = useState("");
-  const [eventType, setEventType] = useState("");
-  const [ageRanges, setAgeRanges] = useState([]);
-  const [eventDiscription, setEventDescription] = useState("");
-  const [startDate, setStartDate] = useState({});
-  const [endDate, setEndDate] = useState({});
-  const [location, setLocation] = useState({});
-
-
+function EditEvent() {
   
   return (
     <Form>
@@ -73,7 +63,7 @@ function NewEventForm() {
         <br></br>
 
       <LocalizationProvider dateAdapter={AdapterMoment}>
-      <DateTimePicker label="Select start date & time" />
+      <DatePicker />
     </LocalizationProvider>
     </Form.Group>
     <Form.Group className="mb-3">
@@ -81,7 +71,7 @@ function NewEventForm() {
     <br></br>
 
       <LocalizationProvider dateAdapter={AdapterMoment}>
-      <DateTimePicker label="Select end date & time" />
+      <DatePicker />
     </LocalizationProvider>
     </Form.Group>
 
@@ -96,4 +86,4 @@ function NewEventForm() {
   );
 }
 
-export default NewEventForm;
+export default EditEvent;

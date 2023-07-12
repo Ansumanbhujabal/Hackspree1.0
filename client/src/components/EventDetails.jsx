@@ -2,6 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Badge } from 'react-bootstrap';
 import OverlayHover from './OverlayHover';
+import EditModal from './EditModal';
 
 function EventDetails(props) {
    const { event } = props;
@@ -59,9 +60,6 @@ function EventDetails(props) {
 
           {/* create a variant for if the event is in the user's data or not, button is either to add or remove the event */}
          
-          <OverlayHover option={"Join Event"} tooltip={"Add this event to your upcoming events"} />
-          <OverlayHover option={"Remove Event"} tooltip={"Remove this event from your upcoming events"} />
-          <OverlayHover option={"Delete Event"} tooltip={"Delete this event"} />
         </Card.Text>
       </Card.Body>
     </Card>
