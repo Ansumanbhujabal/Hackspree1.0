@@ -5,7 +5,18 @@ const events = [
         eventType: "Donation Drive",
         header: "donation-drive",
         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
-        admission: {type: "Free", cost: 0, proceeds: ""},
+        admission: {type: "Free", cost: "", proceeds: ""},
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        location: "4968 Oakmound Road Chicago, IL 60644"
+
+    },
+    {
+        title: "Colorful Futures Project Chicago Fundraiser 2023",
+        date: "Sep 25, 2023",
+        eventType: "Fundraiser",
+        header: "fundraiser",
+        ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
+        admission: {type: "Free", cost: "", proceeds: ""},
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
         location: "4968 Oakmound Road Chicago, IL 60644"
 
@@ -16,7 +27,7 @@ const events = [
         eventType: "Heritage Celebration",
         header: "heritage-celebration",
         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
-        admission: {type: "Suggested Donation", cost: 5-15, proceeds: "Benefit the Taíno Heritage Society"},
+        admission: {type: "Suggested Donation", cost: "5-15", proceeds: "Benefit the Taíno Heritage Society"},
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
         location: "4968 Oakmound Road Chicago, IL 60644"
 
@@ -27,7 +38,7 @@ const events = [
         eventType: "Farmer's Market",
         header: "farmers-market",
         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
-        admission: {type: "Free", cost: 0, proceeds: ""},
+        admission: {type: "Free", cost: "", proceeds: ""},
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
         location: "4968 Oakmound Road Chicago, IL 60644"
 
@@ -38,7 +49,7 @@ const events = [
         eventType: "Food Pantry/Hot Meals",
         header: "food-pantry-hot-meals",
         ageRanges: ["For Kids", "Family-friendly", "Ages 13-18", "Adults"],
-        admission: {type: "Free", cost: 0, proceeds: ""},
+        admission: {type: "Free", cost: "", proceeds: ""},
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
         location: "4968 Oakmound Road Chicago, IL 60644"
 
@@ -49,7 +60,7 @@ const events = [
         eventType: "Festival",
         header: "festival",
         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
-        admission: {type: "Entry Price", cost: 10, proceeds: "Proceeds go to Hyde Park Festival Cooperative and are used to pay performers, staff, and vendors."},
+        admission: {type: "Entry Price", cost: "10", proceeds: "Proceeds go to Hyde Park Festival Cooperative and are used to pay performers, staff, and vendors."},
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
         location: "4968 Oakmound Road Chicago, IL 60644"
 
@@ -60,7 +71,7 @@ const events = [
         eventType: "Skill Share",
         header: "skill-share",
         ageRanges: ["Ages 13-18", "Adults"],
-        admission: {type: "Free", cost: 0, proceeds: ""},
+        admission: {type: "Suggested Donation", cost: "5-15", proceeds: ""},
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
         location: "4968 Oakmound Road Chicago, IL 60644"
 
@@ -71,7 +82,7 @@ const events = [
         eventType: "Service Project",
         header: "service-project",
         ageRanges: ["Ages 13-18", "Adults"],
-        admission: {type: "Free", cost: 0, proceeds: ""},
+        admission: {type: "Free", cost: "", proceeds: ""},
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
         location: "4968 Oakmound Road Chicago, IL 60644"
 
@@ -82,7 +93,7 @@ const events = [
         eventType: "Action Event",
         header: "action-event",
         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
-        admission: {type: "Free", cost: 0, proceeds: ""},
+        admission: {type: "Free", cost: "", proceeds: ""},
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
         location: "Daley Plaza, 50 W. Washington St. Chicago , IL 60602"
 
@@ -93,7 +104,7 @@ const events = [
         eventType: "Entertainment",
         header: "entertainment",
         ageRanges: ["For Kids"],
-        admission: {type: "Free", cost: 0, proceeds: ""},
+        admission: {type: "Free", cost: "", proceeds: ""},
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
         location: "4968 Oakmound Road Chicago, IL 60644"
 

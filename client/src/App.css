@@ -1,6 +1,6 @@
 .App-header {
   width: 100vw;
-  height: 100vh;
+  height: 95vh;
   background-color: #f0f8ff;
   display: flex;
   flex-direction: column;
@@ -64,9 +64,26 @@
   
 }
 
+#short-description {
+  display: block;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 3em;
+  text-overflow: ellipsis;
+}
+
+#event-cards {
+  margin-top: 1rem;
+}
+
 .age-badges {
   display: flex;
   justify-content: space-between;
   justify-content: start;
   
 }
+
+@media only screen and (max-width: 536px) {
+  .age-badges {flex-direction: column;}
+}
+
