@@ -8,7 +8,7 @@ function CommunityCal () {
       );
     return (
         <>
-        <h1 className="display">Calendar Events:</h1>
+        <h1 className="display">Chicago Community Calendar</h1>
         <div className="event-stream">
         {events.map((event, index) => {
               return (

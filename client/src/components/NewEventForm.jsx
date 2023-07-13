@@ -16,7 +16,10 @@ function NewEventForm() {
   const [eventHeader, setEventheader] = useState("");
   const [ageRanges, setAgeRanges] = useState([]);
   const [eventDiscription, setEventDescription] = useState("");
-  const [eventPrice, setEventPrice] = useState({})
+  const [admission, setAdmission] = useState({});
+  const [admissionType, setAdmissionType] = useState("");
+  const [admissionPrice, setAdmissionPrice] = useState("");
+  const [admissionProceeds, setAdmissionProceeds] = useState("");
   const [startDate, setStartDate] = useState({});
   const [endDate, setEndDate] = useState({});
   const [location, setLocation] = useState({});
@@ -27,7 +30,8 @@ function NewEventForm() {
     <Form>
       <Form.Group className="mb-3">
         <Form.Label>Event Title</Form.Label>
-        <Form.Control required type="text" placeholder="Event Title" />
+        <Form.Control required type="text" placeholder="Event Title" value={eventTitle}
+          onChange={(e) => setEventTitle(e.target.value)}/>
       </Form.Group>
 
       <Form.Group className="mb-3">
@@ -55,7 +59,6 @@ function NewEventForm() {
             label={age}
             name="group1"
             type="checkbox"
-            value={age}
             key={index}
             {...age}
           />
@@ -68,7 +71,7 @@ function NewEventForm() {
 
       <Form.Group className="mb-3">
         <Form.Label>Event Description</Form.Label>
-        <Form.Control type="text" as="textarea" rows={3} placeholder="Event Description" />
+        <Form.Control type="text" as="textarea" rows={3} value={eventDiscription} onChange={(e) => setEventDescription(e.target.value)}/>
       </Form.Group>
 
       <Form.Group className="mb-3">
@@ -81,18 +84,19 @@ function NewEventForm() {
     </Form.Select>
       </Form.Group>
 
+
       <Form.Group className="mb-3">
         <Form.Label>Cost</Form.Label>
         <InputGroup className="mb-3">
         <InputGroup.Text>$</InputGroup.Text>
-        <Form.Control required aria-label="Amount (to the nearest dollar)" />
+        <Form.Control required aria-label="Amount (to the nearest dollar)" value={admissionPrice} onChange={(e) => setAdmissionPrice(e.target.value)} />
         <InputGroup.Text>.00</InputGroup.Text>
       </InputGroup>
       </Form.Group>
 
       <Form.Group className="mb-3">
         <Form.Label>Proceeds</Form.Label>
-        <Form.Control type="text" as="textarea" rows={3} placeholder="Event Description" />
+        <Form.Control type="text" as="textarea" rows={3} value={admissionProceeds} onChange={(e) => setAdmissionProceeds(e.target.value)}/>
         <Form.Text>Optional: Let attendees know where the proceeds are going.</Form.Text>
       </Form.Group>
 
@@ -117,6 +121,10 @@ function NewEventForm() {
         <Form.Label>Location</Form.Label>
         <Form.Control type="text" placeholder="Location" />
       </Form.Group>
+
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
      
 
     </Form>

@@ -1,9 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import events from "../../data/events";
 
 const initialState = {
-    joinedEvents: events,
-    createdEvents: events,
+    joinedEvents: [],
+    createdEvents: [],
     profilePhoto: "https://images.pexels.com/photos/64219/dolphin-marine-mammals-water-sea-64219.jpeg",
     username: "Tori Parham",
 }
