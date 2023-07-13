@@ -19,7 +19,7 @@ function UserLayout (userDetails) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
           <LinkContainer to="/community-calendar"><Nav.Link>Calendar</Nav.Link></LinkContainer>
-            <NavDropdown title="Sign In" id="basic-nav-dropdown">
+            <NavDropdown title="Account" id="basic-nav-dropdown">
             <NavDropdown.Item>Create Event</NavDropdown.Item>
             <NavDropdown.Item>Update Profile</NavDropdown.Item>
               <NavDropdown.Divider />
