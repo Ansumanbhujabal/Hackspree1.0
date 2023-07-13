@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import NewEventForm from './NewEventForm';
+import EditEvent from './EditEvent';
 
-function NewEventModal() {
+function EditModal() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -12,19 +12,27 @@ function NewEventModal() {
   return (
     <>
       <p id='new-event-click' onClick={handleShow}>
-        Create Event
+        Edit Event
       </p>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Create New Event</Modal.Title>
+          <Modal.Title>Edit Your Event</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <NewEventForm />
+          <EditEvent />
         </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
       </Modal>
     </>
   );
 }
 
-export default NewEventModal;
+export default EditModal;

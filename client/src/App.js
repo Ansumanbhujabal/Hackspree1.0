@@ -9,10 +9,18 @@ import LandingPage from "./pages/LandingPage";
 import CommunityCal from "./pages/CommunityCal";
 import NoPage from "./pages/NoPage";
 import UserLayout from "./pages/UserLayout";
+import YourEvents from "./pages/YourEvents";
+import { useDispatch } from "react-redux";
+import { getEvents } from "./features/eventsGlobal/eventsGlobalSlice";
 import "./App.css";
 
 function App() {
   const [user, setUser] = useState(null);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getEvents()); //fills collection in store with API data
+  }, []);
 
   const getUser = async () => {
     try {
@@ -20,6 +28,7 @@ function App() {
         `${process.env.REACT_APP_API_URL}/auth/login/success`,
         { withCredentials: true }
       );
+
       const { user } = response.data;
       setUser(user);
     } catch (error) {
@@ -48,6 +57,12 @@ function App() {
           exact
           path="/community-calendar"
           element={user ? <CommunityCal user={user} /> : <LandingPage />}
+        />
+
+      <Route
+          exact
+          path="/your-events"
+          element={user ? <YourEvents user={user} /> : <LandingPage />}
         />
 
         <Route
