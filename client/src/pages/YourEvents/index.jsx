@@ -2,7 +2,7 @@ import EventCard from "../../components/EventCard";
 import { useSelector } from "react-redux";
 
 function YourEvents() {
-const events = useSelector((store) => store.userdata.createdEvents);
+const events = useSelector((store) => store.userEvents.events);
 
   return (
     <>

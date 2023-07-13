@@ -3,8 +3,10 @@ import Basic from "../../components/Calendar";
 function LandingPage () {
     return (
         <>
-        {/* <h1>This is the landing page! Calendar will go here.</h1> */}
+        <div className="container" id="landing-page">
+        <h1>Chicago Community Calendar</h1>
         <Basic />
+        </div>
         </>
     )
 }

@@ -8,16 +8,15 @@
   align-items: center;
 }
 
-.App {
-  background-image: url("../public/images/app-background.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: bottom;
-
+#user-nav {
+  background-color: #7079b1;
+  color: #ffffff
 }
-/* .user-nav {
 
-} */
+#user-nav-bar {
+  background-color: #6e81fb;
+  color: #ffffff
+}
 
 #update-profile-button {
   padding: 0;
@@ -42,7 +41,7 @@
   width: 10rem;
   object-fit: cover;
   border-style: solid;
-  border-color: #6d1111;
+  border-color: #ffffff;
 }
 
 @media only screen and (max-width: 600px) {
@@ -54,7 +53,7 @@
 }
 
 
-.logout-button {
+.user-nav-button {
   font-size: 14px;
   font-weight: 500;
   padding: 10px 20px;
@@ -98,5 +97,11 @@
 
 @media only screen and (max-width: 536px) {
   .age-badges {flex-direction: column;}
+}
+
+#landing-page {
+  height: 80vh;
+  overflow: scroll;
+  
 }
 

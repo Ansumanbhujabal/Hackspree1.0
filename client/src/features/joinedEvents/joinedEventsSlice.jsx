@@ -7,8 +7,8 @@ const initialState = {
 const eventsApi =
   "https://64af12f7c85640541d4e1f45.mockapi.io/joinedEvents";
 
-export const getEvents = createAsyncThunk(
-  "eventsGlobal/getEvents",
+export const getJoinedEvents = createAsyncThunk(
+  "joinedEvents/getJoinedEvents",
   async () => {
     try {
       const response = await fetch(eventsApi);
@@ -21,8 +21,8 @@ export const getEvents = createAsyncThunk(
   }
 );
 
-export const createEvent = createAsyncThunk(
-  "eventsGlobal/createEvent",
+export const postJoinedEvent = createAsyncThunk(
+  "joinedEvents/postJoinedEvent",
   async (newEvent) => {
     try {
       let response = await fetch(eventsApi, {
@@ -39,8 +39,8 @@ export const createEvent = createAsyncThunk(
   }
 );
 
-export const updateEvent = createAsyncThunk(
-  "eventsGlobal/updateEvent",
+export const updateJoinedEvent = createAsyncThunk(
+  "joinedEvents/updateJoinedEvent",
   async (updatedObject) => { //receives the updatedObject that holds the id and updatedCollection
     try {
       const response = await fetch(eventsApi + `/${updatedObject.id}`, {
@@ -61,8 +61,8 @@ export const updateEvent = createAsyncThunk(
   }
 );
 
-export const deleteEvent = createAsyncThunk(
-  "eventsGlobal/deleteEvent",
+export const deleteJoinedEvent = createAsyncThunk(
+  "joinedEvents/deleteJoinedEvent",
   async (id) => {
     try {
       const response = await fetch(eventsApi + `/${id}`, {
@@ -76,25 +76,25 @@ export const deleteEvent = createAsyncThunk(
   }
 );
 
-const eventsGlobalSlice = createSlice({
-    name: 'eventsGlobal',
+const joinedEventsSlice = createSlice({
+    name: 'joinedEvents',
     initialState,
     extraReducers: (builder) => {
         //handles HTTP requests
         builder
-          .addCase(getEvents.fulfilled, (state, action) => { //checks that GET is fulfilled, updates state
+          .addCase(getJoinedEvents.fulfilled, (state, action) => { //checks that GET is fulfilled, updates state
             //called in a useEffect on App.js to fill the collectionItems array with API data
             console.log(action);
             state.events = action.payload;
           })
     
     
-          .addCase(createEvent.fulfilled, (state, action) => { //checks that POST is fulfilled, updates state
+          .addCase(postJoinedEvent.fulfilled, (state, action) => { //checks that POST is fulfilled, updates state
             console.log(action);
             state.events.push(action.payload); //pushes new data to the array
           })
     
-          .addCase(updateEvent.fulfilled, (state, action) => { //checks that PUT is fulfilled, updates state
+          .addCase(updateJoinedEvent.fulfilled, (state, action) => { //checks that PUT is fulfilled, updates state
             console.log(action);
             const { id, updatedEvent } = action.payload; //destructures the object from the payload
             const index = state.events.findIndex((item) => item.id === id); //finds the item in state that matches the id
@@ -103,7 +103,7 @@ const eventsGlobalSlice = createSlice({
             }
           })
     
-          .addCase(deleteEvent.fulfilled, (state, action) => { //checks that DELETE is fulfilled, updates state
+          .addCase(deleteJoinedEvent.fulfilled, (state, action) => { //checks that DELETE is fulfilled, updates state
             console.log(action);
             // Remove the deleted album from the collectionItems array by filtering out the id
             state.events = state.events.filter(
@@ -113,4 +113,4 @@ const eventsGlobalSlice = createSlice({
       },
     });
 
-export default eventsGlobalSlice.reducer;
+export default joinedEventsSlice.reducer;

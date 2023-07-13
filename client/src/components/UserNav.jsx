@@ -13,7 +13,7 @@ function UserNav(userDetails) {
     window.open(`${process.env.REACT_APP_API_URL}/auth/logout`, "_self");
   };
   return (
-    <Card style={{ width: '100', height: '90vh' }}>
+    <Card style={{ width: '100', height: '90vh'}} id='user-nav'>
       <Card.Body>
 
         <div className='container' id='user-header'>
@@ -34,10 +34,10 @@ function UserNav(userDetails) {
         </div>
         <Card.Text style={{'text-align': 'center'}}>{username}</Card.Text>
         <ListGroup className="list-group-flush">
-        <ListGroup.Item><button className="logout-button"><UpdateProfile /></button></ListGroup.Item>
-        <ListGroup.Item><button className="logout-button"><NewEventModal /></button></ListGroup.Item>
-        <LinkContainer to="/your-events"><ListGroup.Item><button className="logout-button">Manage Events</button></ListGroup.Item></LinkContainer>
-        <ListGroup.Item><button className="logout-button" onClick={logout}>
+        <ListGroup.Item><button className="user-nav-button"><UpdateProfile /></button></ListGroup.Item>
+        <ListGroup.Item><button className="user-nav-button"><NewEventModal /></button></ListGroup.Item>
+        <LinkContainer to="/your-events"><ListGroup.Item><button className="user-nav-button">Manage Events</button></ListGroup.Item></LinkContainer>
+        <ListGroup.Item><button className="user-nav-button" onClick={logout}>
             Log Out
           </button></ListGroup.Item>
       </ListGroup>
