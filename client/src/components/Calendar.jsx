@@ -26,8 +26,8 @@ const ColoredDateCellWrapper = ({ children }) =>
     {
         title: "Non-Perishable Food Drive",
         date: "Sep 25, 2023",
-        start: new Date('2023-07-12T13:45:00-05:00'),
-        end: new Date('2023-07-12T14:00:00-05:00'),
+        start: new Date('2023-07-15T13:45:00-05:00'),
+        end: new Date('2023-07-16T14:00:00-05:00'),
         eventType: "Donation Drive",
         header: "donation-drive",
         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
@@ -39,8 +39,8 @@ const ColoredDateCellWrapper = ({ children }) =>
     {
         title: "Colorful Futures Project Chicago Fundraiser 2023",
         date: "Sep 25, 2023",
-        start: new Date('2023-07-03 4:30 pm'),
-        end: new Date('2023-07-03 12:30 am'),
+        start: new Date('2023-07-15 4:30 pm'),
+        end: new Date('2023-07-15 12:30 am'),
         eventType: "Fundraiser",
         header: "fundraiser",
         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
@@ -52,8 +52,8 @@ const ColoredDateCellWrapper = ({ children }) =>
     {
         title: "Taíno Heritage Festival",
         date: "Sep 25, 2023",
-        start: new Date('2023-07-15 10:00 am'),
-        end: new Date('2023-07-15 5:00 pm'),
+        start: new Date('2023-07-01 10:00 am'),
+        end: new Date('2023-07-05 5:00 pm'),
         eventType: "Heritage Celebration",
         header: "heritage-celebration",
         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
