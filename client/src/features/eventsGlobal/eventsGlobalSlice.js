@@ -1,8 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import events from '../../data/events';
 
 const initialState = {
-    events: events,
+    events: [],
 }
 
 const eventsApi =
@@ -66,7 +65,7 @@ export const deleteEvent = createAsyncThunk(
   "eventsGlobal/deleteEvent",
   async (id) => {
     try {
-      const response = await fetch(globalEventsApi + `/${id}`, {
+      const response = await fetch(eventsApi + `/${id}`, {
         method: "DELETE",
       });
 
@@ -83,39 +82,31 @@ const eventsGlobalSlice = createSlice({
     extraReducers: (builder) => {
         //handles HTTP requests
         builder
-          .addCase(getCollectionItems.fulfilled, (state, action) => { //checks that GET is fulfilled, updates state
+          .addCase(getEvents.fulfilled, (state, action) => { //checks that GET is fulfilled, updates state
             //called in a useEffect on App.js to fill the collectionItems array with API data
             console.log(action);
-            state.collectionItems = action.payload;
-            state.loadingCollection = false;
+            state.events = action.payload;
           })
     
-          .addCase(getCollectionItems.pending, (state) => { //loading status
-            state.loadingCollection = true;
-          })
     
-          .addCase(getCollectionItems.rejected, (state) => { //loasing status
-            state.loadingCollection = false;
-          })
-    
-          .addCase(postAlbumReview.fulfilled, (state, action) => { //checks that POST is fulfilled, updates state
+          .addCase(createEvent.fulfilled, (state, action) => { //checks that POST is fulfilled, updates state
             console.log(action);
-            state.collectionItems.push(action.payload); //pushes new data to the array
+            state.events.push(action.payload); //pushes new data to the array
           })
     
-          .addCase(updatePost.fulfilled, (state, action) => { //checks that PUT is fulfilled, updates state
+          .addCase(updateEvent.fulfilled, (state, action) => { //checks that PUT is fulfilled, updates state
             console.log(action);
-            const { id, updatedPost } = action.payload; //destructures the object from the payload
-            const index = state.collectionItems.findIndex((item) => item.id === id); //finds the item in state that matches the id
+            const { id, updatedEvent } = action.payload; //destructures the object from the payload
+            const index = state.events.findIndex((item) => item.id === id); //finds the item in state that matches the id
             if (index !== -1) {
-              state.collectionItems[index] = updatedPost; //replaces that item with updated post
+              state.events[index] = updatedEvent; //replaces that item with updated post
             }
           })
     
-          .addCase(deleteAlbum.fulfilled, (state, action) => { //checks that DELETE is fulfilled, updates state
+          .addCase(deleteEvent.fulfilled, (state, action) => { //checks that DELETE is fulfilled, updates state
             console.log(action);
             // Remove the deleted album from the collectionItems array by filtering out the id
-            state.collectionItems = state.collectionItems.filter(
+            state.events = state.events.filter(
               (item) => item.id !== action.payload.id
             );
           });
