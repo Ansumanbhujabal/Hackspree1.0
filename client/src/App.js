@@ -49,9 +49,9 @@ function App() {
           path="/"
           element={user ? <UserLayout user={user} /> : <Layout /> }>
   
-        <Route
+        {/* <Route
           index element={user ? <Home user={user} /> : <LandingPage />}
-          />
+          /> */}
 
         <Route
           exact

@@ -62,8 +62,10 @@ function NewEventForm() {
             value={age}
             key={index}
             {...age}
-            onChange={(e) => setEventType(e.target.value)}
+            // onChange={(e) => setEventType(e.target.value)}
           />
+          
+
       ))}
       <Form.Text>Please indicate the age ranges appropriate for this event. Select all that apply.</Form.Text>
       </Form.Group>

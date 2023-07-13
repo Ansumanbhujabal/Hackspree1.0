@@ -10,6 +10,7 @@ import {
 // import DemoLink from '../../DemoLink.component'
 // import events from '../../resources/events'
 import * as dates from '../utils/dates'
+import 'react-big-calendar/lib/css/react-big-calendar.css'
 
 const mLocalizer = momentLocalizer(moment)
 
