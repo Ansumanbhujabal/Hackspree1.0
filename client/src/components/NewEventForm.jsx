@@ -59,8 +59,10 @@ function NewEventForm() {
             label={age}
             name="group1"
             type="checkbox"
+            value={age}
             key={index}
             {...age}
+            onChange={(e) => setEventType(e.target.value)}
           />
       ))}
       <Form.Text>Please indicate the age ranges appropriate for this event. Select all that apply.</Form.Text>

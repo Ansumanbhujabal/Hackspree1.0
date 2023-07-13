@@ -8,6 +8,13 @@
   align-items: center;
 }
 
+.App {
+  background-image: url("../public/images/app-background.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: bottom;
+
+}
 .user-nav {
 
 }
@@ -62,10 +69,6 @@
 .event-stream {
   overflow: scroll;
   height: 80vh
-}
-
-#category-tab {
-  background-color: #45913E;
 }
 
 #event-card-header {
