@@ -7,12 +7,17 @@ import DeleteModal from './DeleteModal';
 import RemoveModal from './RemoveModal';
 import JoinModal from './JoinModal';
 import { useSelector } from 'react-redux';
+import moment from 'moment';
 
 function EventCard(props) {
    const { event } = props;
-   const { title, date, eventType, header, ageRanges, description, location, id } = event;
+   const { title, start, end, eventType, header, ageRanges, description, location} = event;
    const joinedEvents = useSelector((store) => store.joinedEvents.events);
    const userEvents = useSelector((store) => store.userEvents.events);
+
+   const startDate = moment(start).format("dddd, MMMM Do YYYY, h:mm:ss a");
+   const endDate = moment(end).format("dddd, MMMM Do YYYY, h:mm:ss a");
+
 
  
   
@@ -66,11 +71,9 @@ function EventCard(props) {
             ))}
             </div>
         <Card.Text>
-        <span><strong>Date:</strong></span> {date}
+          <span><strong>Start Date:</strong></span> {startDate}
           <br></br>
-          <span><strong>Start Time:</strong></span> {date}
-          <br></br>
-          <span><strong>End Time:</strong></span> {date}
+          <span><strong>End Date:</strong></span> {endDate}
           <br></br>
           <span><strong>Event Description: </strong></span> <div id='short-description'>{description}</div>
         <br></br>

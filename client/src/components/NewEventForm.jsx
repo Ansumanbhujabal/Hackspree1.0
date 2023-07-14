@@ -34,8 +34,18 @@ function NewEventForm() {
 
   console.log(ageRanges);
 
-  console.log(startDate);
-  console.log(endDate);
+  // console.log(startDate);
+  // console.log(endDate);
+
+ const startDateSend = startDate.toString();
+ const endDateSend = endDate.toString();
+
+ console.log(startDateSend, startDate);
+ console.log(endDateSend, endDate);
+
+ console.log(moment(startDate).format("dddd, MMMM Do YYYY, h:mm:ss a"))
+
+
 
   const dispatch = useDispatch();
 
@@ -57,8 +67,8 @@ function NewEventForm() {
       ageRanges: ageRanges,
       description: eventDescription,
       admission: admission,
-      start: startDate,
-      end: endDate,
+      start: startDateSend,
+      end: endDateSend,
       location: location,
     };
 

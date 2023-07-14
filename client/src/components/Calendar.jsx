@@ -1,7 +1,7 @@
 import React, { Fragment, useMemo, useCallback, useState } from 'react'
 import PropTypes from 'prop-types'
+import { useSelector } from 'react-redux'
 import moment from 'moment'
-import events from "../data/events"
 import {
   Calendar,
   Views,
@@ -30,7 +30,16 @@ export default function Basic({
 
 {
 
-    const newDate = new Date ('2023-07-15 4:30 pm')
+    const newDate = new Date('2023-07-15 hh:mm')
+    const events = useSelector((store) => store.events.events);
+    const parsedEvents = events.map(event => ({
+      ...event,
+      start: moment(event.start, "YYYY-MM-DD hh:mm"),
+      end: moment(event.end, )
+    }));
+
+    console.log(parsedEvents);
+
 
     console.log (newDate)
     console.log(events)
@@ -68,7 +77,7 @@ export default function Basic({
     }
 
 
-const defaultDate = useMemo(() => new Date('2023, 7, 1'), [])
+const defaultDate = useMemo(() => moment(), [])
 
   return (
     <Fragment>
@@ -76,7 +85,7 @@ const defaultDate = useMemo(() => new Date('2023, 7, 1'), [])
         <Calendar
         defaultDate={defaultDate}
           localizer={localizer}
-          events={events}
+          events={parsedEvents}
           components={components}
           views={['month', 'week']}
         //   startAccessor="start"

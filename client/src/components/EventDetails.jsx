@@ -3,7 +3,7 @@ import { Badge } from 'react-bootstrap';
 
 function EventDetails(props) {
    const { event } = props;
-   const { title, date, eventType, header, ageRanges, description, admission, location } = event;
+   const { title, start, end, eventType, header, ageRanges, description, admission, location } = event;
   return (
     <Card>
       
@@ -43,9 +43,9 @@ function EventDetails(props) {
             </div>
 
         <Card.Text>
-        <span><strong>Date:</strong></span> {date}
+        <span><strong>Start Date:</strong></span> {start}
           <br></br>
-          <span><strong>Time:</strong></span> {date}
+          <span><strong>End Date:</strong></span> {end}
           <br></br>
           <span><strong>Price:</strong></span> <Badge bg='secondary'>{admission.type}</Badge> {admission.cost ? <>${admission.cost} <br></br></> : <br></br> }
           <br></br>

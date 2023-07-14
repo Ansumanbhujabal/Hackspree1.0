@@ -23,10 +23,8 @@ function UserLayout (userDetails) {
           <Nav className="me-auto">
           <LinkContainer to="/community-calendar"><Nav.Link>Calendar</Nav.Link></LinkContainer>
           <LinkContainer to="/"><Nav.Link>Upcoming</Nav.Link></LinkContainer>
-          <Nav.Link><NewEventModal /></Nav.Link>
               <NavDropdown.Divider />
             <NavDropdown title="Account" id="basic-nav-dropdown">
-            <NavDropdown.Item><NewEventModal /></NavDropdown.Item>
             <NavDropdown.Item><UpdateProfile /></NavDropdown.Item>
             <LinkContainer to="/your-events"><NavDropdown.Item>Manage Events</NavDropdown.Item></LinkContainer>
               <NavDropdown.Divider />
