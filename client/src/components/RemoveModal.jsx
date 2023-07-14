@@ -1,14 +1,23 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { useDispatch } from 'react-redux';
+import { deleteJoinedEvent } from '../features/joinedEvents/joinedEventsSlice';
 
 function RemoveModal(props) {
 const { event } = props;
-const { title } = event;
+const { title, id } = event;
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const dispatch = useDispatch();
+  const handleDelete = () => {
+    dispatch(deleteJoinedEvent(id));
+    handleClose();
+
+  }
 
   return (
     <>
@@ -25,7 +34,7 @@ const { title } = event;
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="danger" onClick={handleClose}>
+          <Button variant="danger" onClick={handleDelete}>
             Remove
           </Button>
         </Modal.Footer>
