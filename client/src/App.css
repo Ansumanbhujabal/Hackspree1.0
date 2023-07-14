@@ -114,3 +114,12 @@
   
 }
 
+.rbc-event {
+  background-color: transparent;
+  padding: 0;
+}
+
+.rbc-event.rbc-selected {
+  background-color: #5665c3;
+  padding: 0;
+}

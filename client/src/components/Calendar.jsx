@@ -25,51 +25,6 @@ const ColoredDateCellWrapper = ({ children }) =>
     },
   })
 
-  
-
-//   const events = [
-//     {
-//         title: "Non-Perishable Food Drive",
-//         date: "Sep 25, 2023",
-//         start: new Date('2023-07-15T13:45:00-05:00'),
-//         end: new Date('2023-07-16T14:00:00-05:00'),
-//         eventType: "Donation Drive",
-//         header: "donation-drive",
-//         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
-//         admission: {type: "Free", cost: "", proceeds: ""},
-//         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-//         location: "4968 Oakmound Road Chicago, IL 60644"
-
-//     },
-//     {
-//         title: "Colorful Futures Project Chicago Fundraiser 2023",
-//         date: "Sep 25, 2023",
-//         start: new Date('2023-07-15 4:30 pm'),
-//         end: new Date('2023-07-15 12:30 am'),
-//         eventType: "Fundraiser",
-//         header: "fundraiser",
-//         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
-//         admission: {type: "Free", cost: "", proceeds: ""},
-//         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-//         location: "4968 Oakmound Road Chicago, IL 60644"
-
-//     },
-//     {
-//         title: "Taíno Heritage Festival",
-//         date: "Sep 25, 2023",
-//         start: new Date('2023-07-01 10:00 am'),
-//         end: new Date('2023-07-05 5:00 pm'),
-//         eventType: "Heritage Celebration",
-//         header: "heritage-celebration",
-//         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
-//         admission: {type: "Suggested Donation", cost: "5-15", proceeds: "Benefit the Taíno Heritage Society"},
-//         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-//         location: "4968 Oakmound Road Chicago, IL 60644"
-
-//     },
-    
-// ]
-
 
 export default function Basic({
   
@@ -85,6 +40,36 @@ export default function Basic({
 
   console.log (newDate)
   console.log(events)
+  const components = {
+    event: (props)=>{
+      const eventType = props?.event?.eventType
+      switch(eventType){
+        case "Donation Drive":
+          return <div style={{background: "#85DAFF", color: "#046995" }}>{props.title}</div>
+          case "Fundraiser":
+          return <div style={{background: "#70E067", color: "black" }}>{props.title}</div>
+          case "Heritage Celebration":
+          return <div style={{background: "#F58D3C", color: "white" }}>{props.title}</div>
+          case "Farmer's Market":
+          return <div style={{background: "#45913E", color: "white" }}>{props.title}</div>
+          case "Food Pantry/Hot Meals":
+          return <div style={{background: "#DF3E08", color: "white" }}>{props.title}</div>
+          case "Festival":
+          return <div style={{background: "#FFDB21", color: "#514124" }}>{props.title}</div>
+          case "Skill Share":
+          return <div style={{background: "#B068A9", color: "#4B1145" }}>{props.title}</div>
+          case "Service Project":
+          return <div style={{background: "#3F4AAD", color: "white" }}>{props.title}</div>
+          case "Action Event":
+          return <div style={{background: "#FFAF07", color: "#D56D00" }}>{props.title}</div>
+
+          default:
+             return null;
+          
+          
+      }
+    }
+  }
 //   const { components, defaultDate, max, views } = useMemo(
 //     () => ({
 //       components: {
@@ -107,6 +92,7 @@ const defaultDate = useMemo(() => new Date('2023, 7, 1'), [])
         defaultDate={defaultDate}
           localizer={localizer}
           events={events}
+          components={components}
           views={['month', 'week']}
         //   startAccessor="start"
         //   endAccessor="end"
