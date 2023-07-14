@@ -19,12 +19,12 @@ const mLocalizer = momentLocalizer(moment)
 
 
 
-const ColoredDateCellWrapper = ({ children }) =>
-  React.cloneElement(React.Children.only(children), {
-    style: {
-      backgroundColor: 'white',
-    },
-  })
+// const ColoredDateCellWrapper = ({ children }) =>
+//   React.cloneElement(React.Children.only(children), {
+//     style: {
+//       backgroundColor: 'white',
+//     },
+//   })
 
 
 export default function Basic({
