@@ -54,7 +54,7 @@ function NewEventForm() {
       <Form.Label>Age Ranges</Form.Label>
       
       {["For Kids", "Family-friendly", "Ages 13-18", "Adults"].map((age, index) => (
-        
+        <div>
           <Form.Check
             label={age}
             name="group1"
@@ -64,6 +64,7 @@ function NewEventForm() {
             {...age}
             // onChange={(e) => setEventType(e.target.value)}
           />
+          </div>
           
 
       ))}
