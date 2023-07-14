@@ -1,4 +1,4 @@
-import React, { Fragment, useMemo } from 'react'
+import React, { Fragment, useMemo, useCallback, useState } from 'react'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 import { useSelector } from 'react-redux';
@@ -13,6 +13,7 @@ import {
 // import events from '../../resources/events'
 import * as dates from '../utils/dates'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
+import EventModal from './EventModal';
 
 const mLocalizer = momentLocalizer(moment)
 
@@ -34,9 +35,9 @@ export default function Basic({
 }) 
 
 {
-
-
-  const newDate = new Date ('2023-07-15 4:30 pm')
+    const [selectedEvent, setSelectedEvent] = useState(null);
+  
+    const newDate = new Date ('2023-07-15 4:30 pm')
 
   console.log (newDate)
   console.log(events)
@@ -72,19 +73,17 @@ export default function Basic({
       }
     }
   }
-//   const { components, defaultDate, max, views } = useMemo(
-//     () => ({
-//       components: {
-//         timeSlotWrapper: ColoredDateCellWrapper,
-//       },
-//       defaultDate: new Date(2023, 7, 1),
-//       max: dates.add(dates.endOf(new Date(), 'day'), +1, 'hours'),
-//       views: Object.keys(Views).map((k) => Views[k]),
-//     }),
-//     []
-//   )
+
+//   const handleSelectEvent = useCallback((event) => {
+//     setSelectedEvent(event);
+//   }, []);
+
+//   const handleCloseModal = useCallback(() => {
+//     setSelectedEvent(null);
+//   }, []);
 
 const defaultDate = useMemo(() => new Date('2023, 7, 1'), [])
+
 
   return (
     <Fragment>
@@ -100,7 +99,9 @@ const defaultDate = useMemo(() => new Date('2023, 7, 1'), [])
         //   endAccessor="end"
           style={{ height: '100vh' }}
           popup
+        //   onSelectEvent={handleSelectEvent}
         />
+         {/* {selectedEvent && <EventModal event={selectedEvent} onClose={handleCloseModal} />} */}
       </div>
     </Fragment>
   )

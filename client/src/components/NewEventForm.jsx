@@ -13,9 +13,9 @@ import { InputGroup } from 'react-bootstrap';
 function NewEventForm() {
   const [eventTitle, setEventTitle] = useState("");
   const [eventType, setEventType] = useState("");
-  const [eventHeader, setEventheader] = useState("");
+  const [eventHeader, setEventHeader] = useState("");
   const [ageRanges, setAgeRanges] = useState([]);
-  const [eventDiscription, setEventDescription] = useState("");
+  const [eventDescription, setEventDescription] = useState("");
   const [admission, setAdmission] = useState({});
   const [admissionType, setAdmissionType] = useState("");
   const [admissionPrice, setAdmissionPrice] = useState("");
@@ -24,10 +24,45 @@ function NewEventForm() {
   const [endDate, setEndDate] = useState({});
   const [location, setLocation] = useState({});
 
-
+  const handleSubmit = (e) => {
+  
+    // Construct the event object using the form values
+    const event = {
+      eventTitle,
+      eventType,
+      eventHeader,
+      ageRanges,
+      eventDescription,
+      admission: {
+        admissionType,
+        admissionPrice,
+        admissionProceeds,
+      },
+      startDate,
+      endDate,
+      location,
+    };
+  
+    // Perform any necessary form validation here
+  
+    // Call the appropriate function to handle the form submission (e.g., pass the event object to an API function, dispatch an action, etc.)
+  
+    // Reset the form values
+    setEventTitle("");
+    setEventType("");
+    setEventHeader("");
+    setAgeRanges([]);
+    setEventDescription("");
+    setAdmissionType("");
+    setAdmissionPrice("");
+    setAdmissionProceeds("");
+    setStartDate({});
+    setEndDate({});
+    setLocation({});
+  };
   
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3">
         <Form.Label>Event Title</Form.Label>
         <Form.Control required type="text" placeholder="Event Title" value={eventTitle}
@@ -36,7 +71,7 @@ function NewEventForm() {
 
       <Form.Group className="mb-3">
       <Form.Label>Event Type</Form.Label>
-      <Form.Select required aria-label="Default select example">
+      <Form.Select required aria-label="Default select example" onChange={(e) => setEventType(e.target.value)}>
       <option>Select an Event Type</option>
       <option value="1">Donation Drive</option>
       <option value="2">Fundraiser</option>
@@ -62,7 +97,13 @@ function NewEventForm() {
             value={age}
             key={index}
             {...age}
-            // onChange={(e) => setEventType(e.target.value)}
+            onChange={(e) => {
+              if (e.target.checked) {
+                setAgeRanges([...ageRanges, age]);
+              } else {
+                setAgeRanges(ageRanges.filter((selectedAge) => selectedAge !== age));
+              }
+            }}
           />
           </div>
           
@@ -76,12 +117,12 @@ function NewEventForm() {
 
       <Form.Group className="mb-3">
         <Form.Label>Event Description</Form.Label>
-        <Form.Control type="text" as="textarea" rows={3} value={eventDiscription} onChange={(e) => setEventDescription(e.target.value)}/>
+        <Form.Control type="text" as="textarea" rows={3} value={eventDescription} onChange={(e) => setEventDescription(e.target.value)}/>
       </Form.Group>
 
       <Form.Group className="mb-3">
         <Form.Label>Event Price</Form.Label>
-        <Form.Select required aria-label="Default select example">
+        <Form.Select required aria-label="Default select example" onChange={(e) => setAdmissionType(e.target.value)}>
       <option>Price Type</option>
       <option value="1">Free</option>
       <option value="2">Suggested Donation</option>
@@ -110,7 +151,7 @@ function NewEventForm() {
         <br></br>
 
       <LocalizationProvider dateAdapter={AdapterMoment}>
-      <DateTimePicker label="Select start date & time" />
+      <DateTimePicker label="Select start date & time" onChange={(date) => setStartDate(date)}/>
     </LocalizationProvider>
     </Form.Group>
     <Form.Group className="mb-3">
@@ -118,13 +159,13 @@ function NewEventForm() {
     <br></br>
 
       <LocalizationProvider dateAdapter={AdapterMoment}>
-      <DateTimePicker label="Select end date & time" />
+      <DateTimePicker label="Select end date & time" onChange={(date) => setEndDate(date)}/>
     </LocalizationProvider>
     </Form.Group>
 
       <Form.Group className="mb-3">
         <Form.Label>Location</Form.Label>
-        <Form.Control type="text" placeholder="Location" />
+        <Form.Control type="text" placeholder="Location" onChange={(e) => setLocation(e.target.value)} />
       </Form.Group>
 
       <Button variant="primary" type="submit">
