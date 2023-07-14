@@ -74,13 +74,7 @@ export default function Basic({
     }
   }
 
-//   const handleSelectEvent = useCallback((event) => {
-//     setSelectedEvent(event);
-//   }, []);
 
-//   const handleCloseModal = useCallback(() => {
-//     setSelectedEvent(null);
-//   }, []);
 
 const defaultDate = useMemo(() => new Date('2023, 7, 1'), [])
 
@@ -99,9 +93,9 @@ const defaultDate = useMemo(() => new Date('2023, 7, 1'), [])
         //   endAccessor="end"
           style={{ height: '100vh' }}
           popup
-        //   onSelectEvent={handleSelectEvent}
+        
         />
-         {/* {selectedEvent && <EventModal event={selectedEvent} onClose={handleCloseModal} />} */}
+         
       </div>
     </Fragment>
   )

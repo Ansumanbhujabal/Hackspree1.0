@@ -27,7 +27,7 @@ function NewEventForm() {
   const handleSubmit = (e) => {
   
     // Construct the event object using the form values
-    const event = {
+    const newEvent = {
       eventTitle,
       eventType,
       eventHeader,
@@ -151,7 +151,7 @@ function NewEventForm() {
         <br></br>
 
       <LocalizationProvider dateAdapter={AdapterMoment}>
-      <DateTimePicker label="Select start date & time" onChange={(date) => setStartDate(date)}/>
+      <DateTimePicker label="Select start date & time" disablePast={true} onChange={(date) => setStartDate(date)}/>
     </LocalizationProvider>
     </Form.Group>
     <Form.Group className="mb-3">
@@ -159,7 +159,7 @@ function NewEventForm() {
     <br></br>
 
       <LocalizationProvider dateAdapter={AdapterMoment}>
-      <DateTimePicker label="Select end date & time" onChange={(date) => setEndDate(date)}/>
+      <DateTimePicker label="Select end date & time" disablePast={true} onChange={(date) => setEndDate(date)}/>
     </LocalizationProvider>
     </Form.Group>
 
