@@ -11,9 +11,9 @@ function NewEventModal() {
 
   return (
     <>
-      <p id='new-event-click' onClick={handleShow}>
+      <div id='new-event-click' onClick={handleShow}>
         Create Event
-      </p>
+      </div>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

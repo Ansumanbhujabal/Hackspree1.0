@@ -24,6 +24,8 @@ function NewEventForm() {
   const [endDate, setEndDate] = useState({});
   const [location, setLocation] = useState({});
 
+  console.log(eventTitle);
+
 
   
   return (
@@ -62,7 +64,7 @@ function NewEventForm() {
             value={age}
             key={index}
             {...age}
-            // onChange={(e) => setEventType(e.target.value)}
+            onClick={(e) => console.log("You just clicked", e.target.value)}
           />
           </div>
           
