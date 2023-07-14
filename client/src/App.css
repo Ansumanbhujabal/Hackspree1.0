@@ -115,11 +115,23 @@
 }
 
 .rbc-event {
-  background-color: transparent;
+  background-color: transparent !important; 
   padding: 0;
+  border: none !important;
+
 }
 
 .rbc-event.rbc-selected {
-  background-color: #5665c3;
+  background-color: #5665c3 !important;
   padding: 0;
+}
+
+.rbc-event-content{
+  background-color: #9aa5f0 !important;
+  border: none;
+}
+
+.rbc-event-label{
+  display: none;
+
 }

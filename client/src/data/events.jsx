@@ -2,7 +2,7 @@ const events = [
     {
         title: "Non-Perishable Food Drive",
         start: new Date('2023-07-01 10:00 am'),
-        end: new Date('2023-07-01 5:00 pm'),
+        end: new Date('2023-07-03 5:00 pm'),
         eventType: "Donation Drive",
         header: "donation-drive",
         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
@@ -13,7 +13,7 @@ const events = [
     },
     {
         title: "Colorful Futures Project Chicago Fundraiser 2023",
-        start: new Date('2023-07-02 10:00 am'),
+        start: new Date('2023-07-03 10:00 am'),
         end: new Date('2023-07-02 5:00 pm'),
         eventType: "Fundraiser",
         header: "fundraiser",

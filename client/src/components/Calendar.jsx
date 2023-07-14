@@ -45,11 +45,11 @@ export default function Basic({
       const eventType = props?.event?.eventType
       switch(eventType){
         case "Donation Drive":
-          return <div style={{background: "#85DAFF", color: "#046995" }}>{props.title}</div>
+          return <div style={{background: "#85DAFF", color: "#046995"}}>{props.title}</div>
           case "Fundraiser":
           return <div style={{background: "#70E067", color: "black" }}>{props.title}</div>
           case "Heritage Celebration":
-          return <div style={{background: "#F58D3C", color: "white" }}>{props.title}</div>
+          return <div style={{background: "#F58D3C", color: "white"}}>{props.title}</div>
           case "Farmer's Market":
           return <div style={{background: "#45913E", color: "white" }}>{props.title}</div>
           case "Food Pantry/Hot Meals":
@@ -62,9 +62,11 @@ export default function Basic({
           return <div style={{background: "#3F4AAD", color: "white" }}>{props.title}</div>
           case "Action Event":
           return <div style={{background: "#FFAF07", color: "#D56D00" }}>{props.title}</div>
+          case "Entertainment":
+          return <div style={{background:  "#8700C3", color: "white" }}>{props.title}</div>
 
           default:
-             return null;
+             return <h1>oops</h1>;
           
           
       }
