@@ -6,7 +6,7 @@ import { LinkContainer } from "react-router-bootstrap";
 function Layout () {
     return(
         <>
-        <Navbar expand="lg" className="bg-body-tertiary" sticky="top">
+        <Navbar expand="lg" id="nav-bar" sticky="top">
       <Container>
       <LinkContainer to="/"><Navbar.Brand>Community Calendar</Navbar.Brand></LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
