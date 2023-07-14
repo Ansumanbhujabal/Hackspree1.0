@@ -21,7 +21,7 @@ function NewEventForm() {
   const [admissionPrice, setAdmissionPrice] = useState("");
   const [admissionProceeds, setAdmissionProceeds] = useState("");
   const [startDate, setStartDate] = useState({});
-  const [endDate, setEndDate] = useState({});
+  const [endDate, setEndDate] = useState(moment('2023-07-01 12:00am'));
   const [location, setLocation] = useState({});
 
 
@@ -36,7 +36,7 @@ function NewEventForm() {
 
       <Form.Group className="mb-3">
       <Form.Label>Event Type</Form.Label>
-      <Form.Select required aria-label="Default select example">
+      <Form.Select required aria-label="Default select example" onChange={(e) => setEventType(e.target.value)}>
       <option>Select an Event Type</option>
       <option value="1">Donation Drive</option>
       <option value="2">Fundraiser</option>
@@ -54,7 +54,7 @@ function NewEventForm() {
       <Form.Label>Age Ranges</Form.Label>
       
       {["For Kids", "Family-friendly", "Ages 13-18", "Adults"].map((age, index) => (
-        
+        <div>
           <Form.Check
             label={age}
             name="group1"
@@ -62,9 +62,9 @@ function NewEventForm() {
             value={age}
             key={index}
             {...age}
-            // onChange={(e) => setEventType(e.target.value)}
+            onChange={(e) => setAgeRanges(e.target.value)}
           />
-          
+          </div>
 
       ))}
       <Form.Text>Please indicate the age ranges appropriate for this event. Select all that apply.</Form.Text>
@@ -109,7 +109,13 @@ function NewEventForm() {
         <br></br>
 
       <LocalizationProvider dateAdapter={AdapterMoment}>
-      <DateTimePicker label="Select start date & time" />
+      <DateTimePicker 
+      label="Select start date & time" 
+      // value={value}
+      // defaultValue={moment('2023-07-01 12:00 am')}
+      format="MM-DD-YYYY hh:mm A"
+      // onChange={(newValue) => setStartDate(newValue)}
+      />
     </LocalizationProvider>
     </Form.Group>
     <Form.Group className="mb-3">
@@ -117,13 +123,19 @@ function NewEventForm() {
     <br></br>
 
       <LocalizationProvider dateAdapter={AdapterMoment}>
-      <DateTimePicker label="Select end date & time" />
+      <DateTimePicker 
+      label="Select end date & time" 
+      // value={value}
+      // defaultValue={moment('2023-07-01 12:00 am')}
+      format="MM-DD-YYYY hh:mm A"
+      onChange={(newValue) => setEndDate(newValue)} 
+      />
     </LocalizationProvider>
     </Form.Group>
 
       <Form.Group className="mb-3">
         <Form.Label>Location</Form.Label>
-        <Form.Control type="text" placeholder="Location" />
+        <Form.Control type="text" placeholder="Location" onChange={(e) => setLocation(e.target.value)} />
       </Form.Group>
 
       <Button variant="primary" type="submit">
