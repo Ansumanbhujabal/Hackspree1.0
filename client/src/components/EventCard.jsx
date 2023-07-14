@@ -13,6 +13,8 @@ function EventCard(props) {
    const { title, date, eventType, header, ageRanges, description, location, id } = event;
    const joinedEvents = useSelector((store) => store.joinedEvents.events);
    const userEvents = useSelector((store) => store.userEvents.events);
+
+ 
   
    function containsEvent(event, list) {
     var i;

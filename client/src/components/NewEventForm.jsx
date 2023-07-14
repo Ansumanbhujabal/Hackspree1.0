@@ -8,6 +8,8 @@ import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { useState } from 'react';
 import { InputGroup } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { createEvent } from '../features/eventsGlobal/eventsGlobalSlice'
 
 
 function NewEventForm() {
@@ -20,31 +22,48 @@ function NewEventForm() {
   const [admissionType, setAdmissionType] = useState("");
   const [admissionPrice, setAdmissionPrice] = useState("");
   const [admissionProceeds, setAdmissionProceeds] = useState("");
-  const [startDate, setStartDate] = useState({});
-  const [endDate, setEndDate] = useState({});
-  const [location, setLocation] = useState({});
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [location, setLocation] = useState("");
 
   console.log(eventTitle);
+  console.log(eventType);
+  console.log(eventHeader);
+  console.log(eventDescription);
+  console.log(admissionType);
+
+  console.log(ageRanges);
+
+  console.log(startDate);
+  console.log(endDate);
+
+  const dispatch = useDispatch();
+
+
 
 
   const handleSubmit = (e) => {
+
+    e.preventDefault();
+    setAdmission({type: admissionType, cost: admissionPrice, proceeds: admissionProceeds})
+    // need to turn the date object into string that can be parsed
+    //need to set the header and type simultaneously
   
     // Construct the event object using the form values
     const newEvent = {
-      eventTitle,
-      eventType,
-      eventHeader,
-      ageRanges,
-      eventDescription,
-      admission: {
-        admissionType,
-        admissionPrice,
-        admissionProceeds,
-      },
-      startDate,
-      endDate,
-      location,
+      title: eventTitle,
+      eventType: eventType,
+      header: eventHeader,
+      ageRanges: ageRanges,
+      description: eventDescription,
+      admission: admission,
+      start: startDate,
+      end: endDate,
+      location: location,
     };
+
+    console.log(newEvent);
+    dispatch(createEvent(newEvent));
   
     // Perform any necessary form validation here
   
@@ -56,12 +75,13 @@ function NewEventForm() {
     setEventHeader("");
     setAgeRanges([]);
     setEventDescription("");
+    setAdmission({});
     setAdmissionType("");
     setAdmissionPrice("");
     setAdmissionProceeds("");
-    setStartDate({});
-    setEndDate({});
-    setLocation({});
+    setStartDate("");
+    setEndDate("");
+    setLocation("");
   };
   
   return (
@@ -74,18 +94,18 @@ function NewEventForm() {
 
       <Form.Group className="mb-3">
       <Form.Label>Event Type</Form.Label>
-      <Form.Select required aria-label="Default select example" onChange={(e) => setEventType(e.target.value)}>
+      <Form.Select required aria-label="Default select example" onChange={(e) => setEventHeader(e.target.value)}>
       <option>Select an Event Type</option>
-      <option value="1">Donation Drive</option>
-      <option value="2">Fundraiser</option>
-      <option value="3">Heritage Celebration</option>
-      <option value="4">Farmer's Market</option>
-      <option value="5">Food Pantry/Hot Meals</option>
-      <option value="6">Festival</option>
-      <option value="7">Skill Share</option>
-      <option value="8">Service Project</option>
-      <option value="9">Action Event</option>
-      <option value="10">Entertainment</option>
+      <option value="donation-drive" >Donation Drive</option>
+      <option value="fundraiser">Fundraiser</option>
+      <option value="heritage-celebration">Heritage Celebration</option>
+      <option value="farmers-market">Farmer's Market</option>
+      <option value="food-pantry-hot-meals">Food Pantry/Hot Meals</option>
+      <option value="festival">Festival</option>
+      <option value="skill-share">Skill Share</option>
+      <option value="service-project">Service Project</option>
+      <option value="action-event">Action Event</option>
+      <option value="entertainment">Entertainment</option>
     </Form.Select>
     </Form.Group>
     <Form.Group className="mb-3">
@@ -128,14 +148,14 @@ function NewEventForm() {
         <Form.Label>Event Price</Form.Label>
         <Form.Select required aria-label="Default select example" onChange={(e) => setAdmissionType(e.target.value)}>
       <option>Price Type</option>
-      <option value="1">Free</option>
-      <option value="2">Suggested Donation</option>
-      <option value="3">Entry Fee</option>
+      <option value="Free">Free</option>
+      <option value="Suggested Donation">Suggested Donation</option>
+      <option value="Entry Fee">Entry Fee</option>
     </Form.Select>
       </Form.Group>
-
-
-      <Form.Group className="mb-3">
+        {admissionType === "Suggested Donation" || "Entry Fee" ?
+          <div>
+             <Form.Group className="mb-3">
         <Form.Label>Cost</Form.Label>
         <InputGroup className="mb-3">
         <InputGroup.Text>$</InputGroup.Text>
@@ -149,6 +169,12 @@ function NewEventForm() {
         <Form.Control type="text" as="textarea" rows={3} value={admissionProceeds} onChange={(e) => setAdmissionProceeds(e.target.value)}/>
         <Form.Text>Optional: Let attendees know where the proceeds are going.</Form.Text>
       </Form.Group>
+
+          </div> : ""
+        
+        }
+
+     
 
       <Form.Group className="mb-3">
         <Form.Label>Start Date</Form.Label>
