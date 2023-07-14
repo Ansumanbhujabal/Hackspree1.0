@@ -15,6 +15,7 @@ import { getEvents } from "./features/eventsGlobal/eventsGlobalSlice";
 import { getJoinedEvents } from "./features/joinedEvents/joinedEventsSlice";
 import { getUserEvents } from "./features/userEvents/userEventsSlice";
 import "./App.css";
+import CalTestPage from "./pages/CalTestPage";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -68,6 +69,10 @@ function App() {
           path="/community-calendar"
           element={user ? <CommunityCal user={user} /> : <LandingPage />}
         />
+
+        <Route
+        path="/cal-test-page"
+        element={<CalTestPage />} />
 
       <Route
           exact

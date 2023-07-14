@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-function RemoveModal(props) {
+function JoinModal(props) {
 const { event } = props;
 const { title } = event;
   const [show, setShow] = useState(false);
@@ -13,20 +13,21 @@ const { title } = event;
   return (
     <>
       <div onClick={handleShow}>
-          Remove Event
+          Join Event
         </div>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title><h6 style={{color: "#e60000"}}>Remove an Event</h6>{title} from Upcoming Events</Modal.Title>
+          <Modal.Title><h6 style={{color: "green"}}>Join an Event</h6>
+            {title}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Are you sure you want to remove this event from your upcoming events?</Modal.Body>
+        <Modal.Body>Do you want to attend this event?</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="danger" onClick={handleClose}>
-            Remove
+          <Button variant="success" onClick={handleClose}>
+            Confirm
           </Button>
         </Modal.Footer>
       </Modal>
@@ -34,4 +35,4 @@ const { title } = event;
   );
 }
 
-export default RemoveModal;
+export default JoinModal;

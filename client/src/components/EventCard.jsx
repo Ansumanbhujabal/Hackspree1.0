@@ -5,10 +5,27 @@ import EditModal from './EditModal';
 import OverlayHover from './OverlayHover';
 import DeleteModal from './DeleteModal';
 import RemoveModal from './RemoveModal';
+import JoinModal from './JoinModal';
+import { useSelector } from 'react-redux';
 
 function EventCard(props) {
    const { event } = props;
-   const { title, date, eventType, header, ageRanges, description, location } = event;
+   const { title, date, eventType, header, ageRanges, description, location, id } = event;
+   const joinedEvents = useSelector((store) => store.joinedEvents.events);
+   const userEvents = useSelector((store) => store.userEvents.events);
+  
+   function containsEvent(event, list) {
+    var i;
+    for (i = 0; i < list.length; i++) {
+        if (list[i].id === event.id) {
+            return true;
+        }
+    }
+
+    return false;
+    }
+  
+
   return (
     <>
     <Card id='event-cards'>
@@ -61,14 +78,27 @@ function EventCard(props) {
         
         <div>
         <OverlayHover option={<EventModal event={event} />} btnColor={"secondary"} tooltip={"Expand event details"} />
-        <OverlayHover option={"Join Event"} btnColor={"success"} tooltip={"Add this event to your upcoming events"} />
-        <OverlayHover option={<RemoveModal event={event}/>} btnColor={"danger"} tooltip={"Remove this event from your upcoming events"} />
+        {containsEvent(event, joinedEvents) ? "" :
+        <OverlayHover option={<JoinModal event={event} />} btnColor={"success"} tooltip={"Add this event to your upcoming events"} />
+        }
         </div>
-
+        <div>
+        {containsEvent(event, userEvents) ? "" :
+        containsEvent(event, joinedEvents) ? 
+        <OverlayHover option={<RemoveModal event={event}/>} btnColor={"danger"} tooltip={"Remove this event from your upcoming events"} /> :
+        ""
+        }
+        
+        </div>
+        
+        {containsEvent(event, userEvents) ? 
         <div>
         <OverlayHover option={<DeleteModal event={event}/>} btnColor={"danger"} tooltip={"Delete this event"} />
         <OverlayHover option={<EditModal event={event} />} btnColor={"primary"} tooltip={"Edit this event's details"} />
-        </div>
+        </div> :
+        ""
+      }
+        
           
           
         </Card.Text>
