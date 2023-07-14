@@ -81,6 +81,10 @@
   
 }
 
+.event-buttons {
+  margin: 1rem;
+}
+
 #short-description {
   overflow: hidden;
   max-width: 100%;

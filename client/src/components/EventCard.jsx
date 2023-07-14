@@ -1,12 +1,16 @@
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Badge } from 'react-bootstrap';
 import EventModal from './EventModal';
+import EditModal from './EditModal';
+import OverlayHover from './OverlayHover';
+import DeleteModal from './DeleteModal';
+import RemoveModal from './RemoveModal';
 
 function EventCard(props) {
    const { event } = props;
    const { title, date, eventType, header, ageRanges, description, location } = event;
   return (
+    <>
     <Card id='event-cards'>
       
       <Card.Img variant="top" src={`./images/${header}.png`} id='event-card-header'/>
@@ -54,12 +58,23 @@ function EventCard(props) {
           <span><strong>Location:</strong></span> {location}
           <br></br>
           <br></br>
-        <EventModal event={event} />
-         
+        
+        <div>
+        <OverlayHover option={<EventModal event={event} />} btnColor={"secondary"} tooltip={"Expand event details"} />
+        <OverlayHover option={"Join Event"} btnColor={"success"} tooltip={"Add this event to your upcoming events"} />
+        <OverlayHover option={<RemoveModal event={event}/>} btnColor={"danger"} tooltip={"Remove this event from your upcoming events"} />
+        </div>
+
+        <div>
+        <OverlayHover option={<DeleteModal event={event}/>} btnColor={"danger"} tooltip={"Delete this event"} />
+        <OverlayHover option={<EditModal event={event} />} btnColor={"primary"} tooltip={"Edit this event's details"} />
+        </div>
+          
           
         </Card.Text>
       </Card.Body>
     </Card>
+    </>
   );
 }
 

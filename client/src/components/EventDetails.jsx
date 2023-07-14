@@ -1,8 +1,5 @@
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Badge } from 'react-bootstrap';
-import OverlayHover from './OverlayHover';
-import EditModal from './EditModal';
 
 function EventDetails(props) {
    const { event } = props;
