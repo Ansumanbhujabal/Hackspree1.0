@@ -4,9 +4,22 @@ The team was inspired to create CommunityCalendar after seeing a need in one of 
 ## What it does 🤔
 CommunityCalendar allows users to view events happening in their area, as well as add events that they're hosting. The ability for individuals to add their own events makes CommunityCalendar the best way to see all events happening locally, whether it's hosted by an individual, an organization or the lcoal government.
 
-## How we built it 🎨
-
-## Design 🎨
+## How we built it 🎨 
+- React.JS
+- Redux Toolkit
+- React-Bootstrap
+- Bootstrap
+- MaterialUI
+- Big Calendar
+- Moment.JS
+- Node.JS
+- Express.JS
+- MongoDB
+- Passport,
+- OAuth
+- Google Maps JavaScript API
+- Google Places API
+- Google Geocoding API
 
 ## Challenges we ran into 😤
 Our team members learned new libraries and worked with new technologies. We familiarized ourselves with aspects of full stack development that we previously had no experience with. We also collaborated from four different time zones, which was challenging to find a time to work together.
@@ -17,7 +30,8 @@ We're very proud of learning to work with React Redux and MongoDB, as well as fi
 ## What we learned 🙌
 The team learned how to work with new librabries in React and APIs such as Google Maps API, Places API and the Geocoding API as well as working with MongoDB for not only authentication but storage as well.
 
-## What's next 🚀
+## What's next CommunityCalendar 🚀
+CommunityCalendar will add more functionality in order to better serve the community.
 
 #### NOTE
 Note ⚠️ — API credentials have been revoked. If you want to run the same on your local, use your own credentials.
