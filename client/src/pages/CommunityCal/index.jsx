@@ -10,7 +10,7 @@ function CommunityCal () {
         <h1>Chicago CommunityConnect</h1>
         <Basic />
         <div className="container-fluid">
-    <div className="event-stream">
+    {/* <div className="event-stream">
     {events.map((event, index) => {
           return (
                 <EventCard
@@ -21,7 +21,7 @@ function CommunityCal () {
               
           );
         })}
-    </div>
+    </div> */}
         </div>
         </>
     )

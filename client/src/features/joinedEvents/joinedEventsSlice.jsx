@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { useEffect } from "react";
 
 const initialState = {
   events: [],
