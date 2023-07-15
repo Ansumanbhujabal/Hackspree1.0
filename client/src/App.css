@@ -1,9 +1,141 @@
-.container {
+.App-header {
   width: 100vw;
-  height: 100vh;
+  height: 95vh;
   background-color: #f0f8ff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#user-nav {
+  background-color: #9eaaff;
+  color: #ffffff
+}
+
+#nav-bar {
+  background-color: #6e81fb;
+  color: #ffffff
+}
+
+#user-nav-bar {
+  background-color: #6e81fb;
+  color: #ffffff
+}
+
+#update-profile-button {
+  padding: 0;
+  margin: 0;
+}
+
+#new-event-click {
+  padding: 0;
+  margin: 0;
+}
+
+#user-header {
+  justify-content: center;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+}
+
+.profile-photo {
+  border-radius: 50%;
+  border-width: 1px;
+  height: 10rem;
+  width: 10rem;
+  object-fit: cover;
+  border-style: solid;
+  border-color: #ffffff;
+}
+
+@media only screen and (max-width: 600px) {
+  .profile-photo {height: 5rem; width: 5rem}
+}
+
+@media only screen and (max-width: 761px) {
+  .profile-photo {height: 5rem; width: 5rem}
+}
+
+
+.user-nav-button {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px;
+  color: rgb(0, 0, 0);
+  background-color: transparent;
+  border-radius: 12px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.event-stream {
+  overflow: scroll;
+  height: 80vh
+}
+
+#event-card-header {
+  height: 300px;
+  object-fit: cover;
+  
+}
+
+.event-buttons {
+  margin: 1rem;
+}
+
+#short-description {
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  width: fit-content;
+  white-space: nowrap;
+}
+
+#event-cards {
+  margin-top: 1rem;
+}
+
+.age-badges {
+  display: flex;
+  justify-content: space-between;
+  justify-content: start;
+  
+}
+
+@media only screen and (max-width: 536px) {
+  .age-badges {flex-direction: column;}
+}
+
+#landing-page {
+  height: 80vh;
+  overflow: scroll;
+  
+}
+
+.rbc-event {
+  background-color: transparent !important; 
+  padding: 0;
+  border: none !important;
+
+}
+
+.rbc-event.rbc-selected {
+  background-color: #5665c3 !important;
+  padding: 0;
+}
+
+.rbc-event-content{
+  background-color: #9aa5f0 !important;
+  border: none;
+}
+
+.rbc-event-label{
+  display: none;
+
+}
+
+#brand-color {
+  color:white !important;
 }

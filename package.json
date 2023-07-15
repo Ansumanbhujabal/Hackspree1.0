@@ -1,5 +1,8 @@
 {
   "dependencies": {
-    "mongoose": "^7.3.2"
+    "moment": "^2.29.4",
+    "mongoose": "^7.3.2",
+    "nodemon": "^3.0.1",
+    "react-big-calendar": "^1.8.1"
   }
 }
