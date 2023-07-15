@@ -20,7 +20,7 @@ function NewEventModal() {
           <Modal.Title>Create New Event</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <NewEventForm />
+          <NewEventForm handleClose={handleClose} />
         </Modal.Body>
       </Modal>
     </>

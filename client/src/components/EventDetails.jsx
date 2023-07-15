@@ -1,5 +1,6 @@
 import Card from "react-bootstrap/Card";
 import { Badge } from "react-bootstrap";
+import moment from "moment";
 
 function EventDetails(props) {
   const { event } = props;
@@ -14,6 +15,9 @@ function EventDetails(props) {
     admission,
     location,
   } = event;
+
+  const startDate = moment(start).format("dddd, MMMM Do YYYY, h:mm a");
+  const endDate = moment(end).format("dddd, MMMM Do YYYY, h:mm a");
 
   return (
     <Card>
@@ -89,12 +93,12 @@ function EventDetails(props) {
           <span>
             <strong>Start Date:</strong>
           </span>{" "}
-          {start}
+          {startDate}
           <br />
           <span>
             <strong>End Date:</strong>
           </span>{" "}
-          {end}
+          {endDate}
           <br />
           <span>
             <strong>Price:</strong>

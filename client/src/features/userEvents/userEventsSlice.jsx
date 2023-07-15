@@ -8,8 +8,8 @@ const initialState = {
 const eventsApi = "https://64af12f7c85640541d4e1f45.mockapi.io/createdEvents";
 
 export const getUserEvents = createAsyncThunk(
-  "userEvents/getUserEvents",
-  async (events) => {
+  "joinedEvents/getUserEvents",
+  async () => {
     try {
       const response = await fetch(eventsApi);
       console.log(response);
@@ -20,6 +20,7 @@ export const getUserEvents = createAsyncThunk(
     }
   }
 );
+
 
 export const postUserEvent = createAsyncThunk(
   "userEvents/postUserEvent",
