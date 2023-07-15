@@ -113,43 +113,43 @@ console.log(sampleDate.format("YYYY-MM-DD hh:mm a"));
           let backgroundColor = "";
           let textColor = "";
           switch (eventType) {
-            case "donation-drive":
+            case "Donation Drive":
               backgroundColor = "#85DAFF";
               textColor = "#046995";
               break;
-            case "fundraiser":
+            case "Fundraiser":
               backgroundColor = "#70E067";
               textColor = "black";
               break;
-            case "heritage-celebration":
+            case "Heritage Celebration":
               backgroundColor = "#F58D3C";
               textColor = "white";
               break;
-            case "farmers-market":
+            case "Farmer's Market":
               backgroundColor = "#45913E";
               textColor = "white";
               break;
-            case "food-pantry-hot-meals":
+            case "Food Pantry/Hot Meals":
               backgroundColor = "#DF3E08";
               textColor = "white";
               break;
-            case "festival":
+            case "Festival":
               backgroundColor = "#FFDB21";
               textColor = "#514124";
               break;
-            case "skill-share":
+            case "Skill Share":
               backgroundColor = "#B068A9";
               textColor = "#4B1145";
               break;
-            case "service-project":
+            case "Service Project":
               backgroundColor = "#3F4AAD";
               textColor = "white";
               break;
-            case "action-event":
+            case "Action Event":
               backgroundColor = "#FFAF07";
               textColor = "#D56D00";
               break;
-            case "entertainment":
+            case "Entertainment":
               backgroundColor = "#8700C3";
               textColor = "white";
               break;
