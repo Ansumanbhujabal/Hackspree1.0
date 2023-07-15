@@ -15,8 +15,8 @@ function EventCard(props) {
    const joinedEvents = useSelector((store) => store.joinedEvents.events);
    const userEvents = useSelector((store) => store.userEvents.events);
 
-   const startDate = moment(start).format("dddd, MMMM Do YYYY, h:mm:ss a");
-   const endDate = moment(end).format("dddd, MMMM Do YYYY, h:mm:ss a");
+   const startDate = moment(start).format("dddd, MMMM Do YYYY, h:mm a");
+   const endDate = moment(end).format("dddd, MMMM Do YYYY, h:mm a");
 
 
  
