@@ -12,14 +12,25 @@ import UserLayout from "./pages/UserLayout";
 import YourEvents from "./pages/YourEvents";
 import { useDispatch } from "react-redux";
 import { getEvents } from "./features/eventsGlobal/eventsGlobalSlice";
+import { getJoinedEvents } from "./features/joinedEvents/joinedEventsSlice";
+import { getUserEvents } from "./features/userEvents/userEventsSlice";
 import "./App.css";
+import CalTestPage from "./pages/CalTestPage";
 
 function App() {
   const [user, setUser] = useState(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getEvents()); //fills collection in store with API data
+    dispatch(getEvents());
+  }, []);
+
+  useEffect(() => {
+    dispatch(getJoinedEvents());
+  }, []);
+
+  useEffect(() => {
+    dispatch(getUserEvents());
   }, []);
 
   const getUser = async () => {
@@ -49,15 +60,19 @@ function App() {
           path="/"
           element={user ? <UserLayout user={user} /> : <Layout /> }>
   
-        {/* <Route
+        <Route
           index element={user ? <Home user={user} /> : <LandingPage />}
-          /> */}
+          />
 
         <Route
           exact
           path="/community-calendar"
           element={user ? <CommunityCal user={user} /> : <LandingPage />}
         />
+
+        <Route
+        path="/cal-test-page"
+        element={<CalTestPage />} />
 
       <Route
           exact

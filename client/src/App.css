@@ -8,16 +8,20 @@
   align-items: center;
 }
 
-.App {
-  background-image: url("../public/images/app-background.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: bottom;
-
+#user-nav {
+  background-color: #9eaaff;
+  color: #ffffff
 }
-/* .user-nav {
 
-} */
+#nav-bar {
+  background-color: #6e81fb;
+  color: #ffffff
+}
+
+#user-nav-bar {
+  background-color: #6e81fb;
+  color: #ffffff
+}
 
 #update-profile-button {
   padding: 0;
@@ -42,7 +46,7 @@
   width: 10rem;
   object-fit: cover;
   border-style: solid;
-  border-color: #6d1111;
+  border-color: #ffffff;
 }
 
 @media only screen and (max-width: 600px) {
@@ -54,7 +58,7 @@
 }
 
 
-.logout-button {
+.user-nav-button {
   font-size: 14px;
   font-weight: 500;
   padding: 10px 20px;
@@ -75,6 +79,10 @@
   height: 300px;
   object-fit: cover;
   
+}
+
+.event-buttons {
+  margin: 1rem;
 }
 
 #short-description {
@@ -100,3 +108,34 @@
   .age-badges {flex-direction: column;}
 }
 
+#landing-page {
+  height: 80vh;
+  overflow: scroll;
+  
+}
+
+.rbc-event {
+  background-color: transparent !important; 
+  padding: 0;
+  border: none !important;
+
+}
+
+.rbc-event.rbc-selected {
+  background-color: #5665c3 !important;
+  padding: 0;
+}
+
+.rbc-event-content{
+  background-color: #9aa5f0 !important;
+  border: none;
+}
+
+.rbc-event-label{
+  display: none;
+
+}
+
+#brand-color {
+  color:white !important;
+}

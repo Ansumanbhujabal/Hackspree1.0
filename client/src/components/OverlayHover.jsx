@@ -12,11 +12,11 @@ function OverlayHover(props) {
 
   return (
     <OverlayTrigger
-      placement="right"
-      delay={{ show: 250, hide: 400 }}
+      placement="bottom"
+      delay={{ show: 250, hide: 290 }}
       overlay={renderTooltip}
     >
-      <Button variant={btnColor} size='sm' onClick={clickProp}>{option}</Button>
+      <Button variant={btnColor} size='sm' className="event-buttons" onClick={clickProp}>{option}</Button>
     </OverlayTrigger>
   );
 }

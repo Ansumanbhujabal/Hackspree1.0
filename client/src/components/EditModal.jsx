@@ -11,9 +11,9 @@ function EditModal() {
 
   return (
     <>
-      <p id='new-event-click' onClick={handleShow}>
+      <div onClick={handleShow}>
         Edit Event
-      </p>
+      </div>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

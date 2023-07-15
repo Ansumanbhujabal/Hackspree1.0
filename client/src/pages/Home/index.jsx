@@ -1,8 +1,10 @@
 import EventCard from "../../components/EventCard";
 import { useSelector } from "react-redux";
+// import events from '../../data/events';
 
 function Home() {
-const events = useSelector((store) => store.userdata.joinedEvents);
+const events = useSelector((store) => store.joinedEvents.events);
+console.log(events);
 
   return (
     <>

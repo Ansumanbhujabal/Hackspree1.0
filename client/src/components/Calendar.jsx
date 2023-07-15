@@ -1,5 +1,6 @@
-import React, { Fragment, useMemo } from 'react'
+import React, { Fragment, useMemo, useCallback, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
+import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment'
 import {
   Calendar,
@@ -7,96 +8,180 @@ import {
   DateLocalizer,
   momentLocalizer,
 } from 'react-big-calendar'
-// import DemoLink from '../../DemoLink.component'
-// import events from '../../resources/events'
-import * as dates from '../utils/dates'
+import { getEvents } from '../features/eventsGlobal/eventsGlobalSlice';
 import 'react-big-calendar/lib/css/react-big-calendar.css'
+
 
 const mLocalizer = momentLocalizer(moment)
 
-
-
-const ColoredDateCellWrapper = ({ children }) =>
-  React.cloneElement(React.Children.only(children), {
-    style: {
-      backgroundColor: 'white',
-    },
-  })
-
-  const events = [
-    {
-        title: "Non-Perishable Food Drive",
-        date: "Sep 25, 2023",
-        start: new Date('2023-07-15T13:45:00-05:00'),
-        end: new Date('2023-07-16T14:00:00-05:00'),
-        eventType: "Donation Drive",
-        header: "donation-drive",
-        ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
-        admission: {type: "Free", cost: "", proceeds: ""},
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-        location: "4968 Oakmound Road Chicago, IL 60644"
-
-    },
-    {
-        title: "Colorful Futures Project Chicago Fundraiser 2023",
-        date: "Sep 25, 2023",
-        start: new Date('2023-07-15 4:30 pm'),
-        end: new Date('2023-07-15 12:30 am'),
-        eventType: "Fundraiser",
-        header: "fundraiser",
-        ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
-        admission: {type: "Free", cost: "", proceeds: ""},
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-        location: "4968 Oakmound Road Chicago, IL 60644"
-
-    },
-    {
-        title: "Taíno Heritage Festival",
-        date: "Sep 25, 2023",
-        start: new Date('2023-07-01 10:00 am'),
-        end: new Date('2023-07-05 5:00 pm'),
-        eventType: "Heritage Celebration",
-        header: "heritage-celebration",
-        ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
-        admission: {type: "Suggested Donation", cost: "5-15", proceeds: "Benefit the Taíno Heritage Society"},
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-        location: "4968 Oakmound Road Chicago, IL 60644"
-
-    },
-    
-]
+// const ColoredDateCellWrapper = ({ children }) =>
+//   React.cloneElement(React.Children.only(children), {
+//     style: {
+//       backgroundColor: 'white',
+//     },
+//   })
 
 
 export default function Basic({
   localizer = mLocalizer,
   showDemoLink = false,
   ...props
-}) {
-//   const { components, defaultDate, max, views } = useMemo(
-//     () => ({
-//       components: {
-//         timeSlotWrapper: ColoredDateCellWrapper,
-//       },
-//       defaultDate: new Date(2023, 7, 1),
-//       max: dates.add(dates.endOf(new Date(), 'day'), +1, 'hours'),
-//       views: Object.keys(Views).map((k) => Views[k]),
-//     }),
-//     []
-//   )
+}) 
 
-const defaultDate = useMemo(() => new Date('2023, 7, 1'), [])
+{
+    const sampleDateString = "Tue Jul 18 2023 16:00:00 GMT-0400";
+const sampleDate = moment(sampleDateString);
+console.log(sampleDate.format());
+console.log(sampleDate.format("YYYY-MM-DD hh:mm a"));
+
+
+    const newDate = new Date('2023-07-15 hh:mm')
+    const events = useSelector((store) => store.events.events);
+    
+    const dispatch = useDispatch();
+    // const events = useSelector((state) => state.events.events);
+
+//     const firstEvent=events[0];
+
+//     console.log(firstEvent.start); // Output the start date/time of the first event
+// console.log(firstEvent.end);
+
+    console.log(events);
+    
+    useEffect(() => {
+        dispatch(getEvents());
+      }, [dispatch]);
+    
+    const parsedEvents = useMemo(() =>
+    events.map(event => ({
+      ...event,
+      start: moment(event.start).format("YYYY-MM-DD hh:mm a"),
+      end: moment(event.end).format("YYYY-MM-DD hh:mm a")
+    })),
+    [events]
+    );
+
+
+    console.log(parsedEvents);
+
+
+    // console.log (new Date())
+    // console.log(events)
+    // const components = {
+    //     event: (props)=>{
+    //         // return <div>{props.title}</div>;
+    //         const eventType = props?.event?.eventType;
+    //         const eventTitle = props?.event?.title;
+            
+    //     switch(eventType){
+    //         case "Donation Drive":
+    //         return <div style={{background: "#85DAFF", color: "#046995"}}>{eventTitle}</div>;
+    //         case "fundraiser":
+    //         return <div style={{background: "#70E067", color: "black" }}>{eventTitle}</div>;
+    //         case "Heritage Celebration":
+    //         return <div style={{background: "#F58D3C", color: "white"}}>{eventTitle}</div>;
+    //         case "Farmer's Market":
+    //         return <div style={{background: "#45913E", color: "white" }}>{eventTitle}</div>;
+    //         case "Food Pantry/Hot Meals":
+    //         return <div style={{background: "#DF3E08", color: "white" }}>{eventTitle}</div>;
+    //         case "festival":
+    //         return <div style={{background: "#FFDB21", color: "#514124" }}>{eventTitle}</div>;
+    //         case "skill-share":
+    //         return <div style={{background: "#B068A9", color: "#4B1145" }}>{eventTitle}</div>;
+    //         case "Service Project":
+    //         return <div style={{background: "#3F4AAD", color: "white" }}>{eventTitle}</div>;
+    //         case "Action Event":
+    //         return <div style={{background: "#FFAF07", color: "#D56D00" }}>{eventTitle}</div>;
+    //         case "Entertainment":
+    //         return <div style={{background:  "#8700C3", color: "white" }}>{eventTitle}</div>;
+
+    //         default:
+    //             return (
+    //                 <div style={{ background: "gray", color: "white" }}>
+    //                   {eventTitle}
+    //                 </div>
+    //             );
+            
+    //     }
+    //     }
+    // }
+
+    const components = {
+        event: (props) => {
+          const eventType = props?.event?.eventType;
+          const eventTitle = props?.event?.title; // Access the event title
+          let backgroundColor = "";
+          let textColor = "";
+          switch (eventType) {
+            case "donation-drive":
+              backgroundColor = "#85DAFF";
+              textColor = "#046995";
+              break;
+            case "fundraiser":
+              backgroundColor = "#70E067";
+              textColor = "black";
+              break;
+            case "heritage-celebration":
+              backgroundColor = "#F58D3C";
+              textColor = "white";
+              break;
+            case "farmers-market":
+              backgroundColor = "#45913E";
+              textColor = "white";
+              break;
+            case "food-pantry-hot-meals":
+              backgroundColor = "#DF3E08";
+              textColor = "white";
+              break;
+            case "festival":
+              backgroundColor = "#FFDB21";
+              textColor = "#514124";
+              break;
+            case "skill-share":
+              backgroundColor = "#B068A9";
+              textColor = "#4B1145";
+              break;
+            case "service-project":
+              backgroundColor = "#3F4AAD";
+              textColor = "white";
+              break;
+            case "action-event":
+              backgroundColor = "#FFAF07";
+              textColor = "#D56D00";
+              break;
+            case "entertainment":
+              backgroundColor = "#8700C3";
+              textColor = "white";
+              break;
+            default:
+              backgroundColor = "gray";
+              textColor = "white";
+          }
+      
+          const eventStyle = {
+            backgroundColor: backgroundColor,
+            color: textColor,
+          };
+      
+          return <div style={eventStyle}>{eventTitle}</div>;
+        }
+      };
+      
+
+
+const defaultDate = useMemo(() => moment(), [])
 
   return (
     <Fragment>
-      {/* {showDemoLink ? <DemoLink fileName="basic" /> : null} */}
-      <div className="height600">
+      <div>
         <Calendar
         defaultDate={defaultDate}
           localizer={localizer}
-          events={events}
+          events={parsedEvents}
+          components={components}
           views={['month', 'week']}
-        //   startAccessor="start"
-        //   endAccessor="end"
+          startAccessor="start"
+          endAccessor="end"
           style={{ height: '100vh' }}
           popup
         />

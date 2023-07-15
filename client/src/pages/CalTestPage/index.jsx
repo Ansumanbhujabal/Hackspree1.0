@@ -1,15 +1,14 @@
-
-import Basic from "../../components/Calendar";
 import EventCard from "../../components/EventCard";
 import { useSelector } from "react-redux";
+// import events from '../../data/events';
 
-function CommunityCal () {
-    const events = useSelector((store) => store.events.events);
-    return (
-        <>
-        <h1>Chicago CommunityConnect</h1>
-        <Basic />
-        <div className="container-fluid">
+function CalTestPage() {
+const events = useSelector((store) => store.events.events);
+console.log(events);
+
+  return (
+    <>
+    <h1 className="display">Calendar Test:</h1>
     <div className="event-stream">
     {events.map((event, index) => {
           return (
@@ -22,9 +21,8 @@ function CommunityCal () {
           );
         })}
     </div>
-        </div>
-        </>
-    )
+    </>
+  );
 }
 
-export default CommunityCal;
+export default CalTestPage;

@@ -1,7 +1,8 @@
 const events = [
     {
         title: "Non-Perishable Food Drive",
-        date: "Sep 25, 2023",
+        start: new Date('2023-07-01 10:00 am'),
+        end: new Date('2023-07-03 5:00 pm'),
         eventType: "Donation Drive",
         header: "donation-drive",
         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
@@ -12,7 +13,8 @@ const events = [
     },
     {
         title: "Colorful Futures Project Chicago Fundraiser 2023",
-        date: "Sep 25, 2023",
+        start: new Date('2023-07-03 10:00 am'),
+        end: new Date('2023-07-02 5:00 pm'),
         eventType: "Fundraiser",
         header: "fundraiser",
         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
@@ -23,7 +25,8 @@ const events = [
     },
     {
         title: "Taíno Heritage Festival",
-        date: "Sep 25, 2023",
+        start: new Date('2023-07-03 10:00 am'),
+        end: new Date('2023-07-03 5:00 pm'),
         eventType: "Heritage Celebration",
         header: "heritage-celebration",
         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
@@ -34,7 +37,8 @@ const events = [
     },
     {
         title: "Lincoln Square Farmer's Market",
-        date: "Sep 25, 2023",
+        start: new Date('2023-07-03 10:00 am'),
+        end: new Date('2023-07-03 5:00 pm'),
         eventType: "Farmer's Market",
         header: "farmers-market",
         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
@@ -45,7 +49,8 @@ const events = [
     },
     {
         title: "Fellowship Covenant Church Hot Meal Night",
-        date: "Sep 25, 2023",
+        start: new Date('2023-07-03 10:00 am'),
+        end: new Date('2023-07-03 5:00 pm'),
         eventType: "Food Pantry/Hot Meals",
         header: "food-pantry-hot-meals",
         ageRanges: ["For Kids", "Family-friendly", "Ages 13-18", "Adults"],
@@ -56,7 +61,8 @@ const events = [
     },
     {
         title: "Hyde Park Festival",
-        date: "Sep 25, 2023",
+        start: new Date('2023-07-08 10:00 am'),
+        end: new Date('2023-07-08 5:00 pm'),
         eventType: "Festival",
         header: "festival",
         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
@@ -67,7 +73,8 @@ const events = [
     },
     {
         title: "Sewing Circle at Folwell West Library",
-        date: "Sep 25, 2023",
+        start: new Date('2023-07-15 10:00 am'),
+        end: new Date('2023-07-15 5:00 pm'),
         eventType: "Skill Share",
         header: "skill-share",
         ageRanges: ["Ages 13-18", "Adults"],
@@ -78,7 +85,8 @@ const events = [
     },
     {
         title: "Hartigan Beach Park Cleanup",
-        date: "Sep 25, 2023",
+        start: new Date('2023-07-20 10:00 am'),
+        end: new Date('2023-07-22 5:00 pm'),
         eventType: "Service Project",
         header: "service-project",
         ageRanges: ["Ages 13-18", "Adults"],
@@ -89,7 +97,8 @@ const events = [
     },
     {
         title: "Voter Registration Rally",
-        date: "Sep 25, 2023",
+        start: new Date('2023-07-26 10:00 am'),
+        end: new Date('2023-07-26 5:00 pm'),
         eventType: "Action Event",
         header: "action-event",
         ageRanges: ["Family-friendly", "Ages 13-18", "Adults"],
@@ -100,7 +109,8 @@ const events = [
     },
     {
         title: "Drag Story Hour at Ericsson Heights Library",
-        date: "Sep 25, 2023",
+        start: new Date('2023-07-28 10:00 am'),
+        end: new Date('2023-07-28 5:00 pm'),
         eventType: "Entertainment",
         header: "entertainment",
         ageRanges: ["For Kids"],

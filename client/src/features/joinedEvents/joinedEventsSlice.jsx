@@ -1,15 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import moment from "moment";
 
 const initialState = {
   events: [],
 };
 
-const eventsApi = "https://64af12f7c85640541d4e1f45.mockapi.io/createdEvents";
+const eventsApi = "https://64af12f7c85640541d4e1f45.mockapi.io/joinedEvents";
 
-export const getUserEvents = createAsyncThunk(
-  "userEvents/getUserEvents",
-  async (events) => {
+export const getJoinedEvents = createAsyncThunk(
+  "joinedEvents/getJoinedEvents",
+  async () => {
     try {
       const response = await fetch(eventsApi);
       console.log(response);
@@ -21,8 +20,8 @@ export const getUserEvents = createAsyncThunk(
   }
 );
 
-export const postUserEvent = createAsyncThunk(
-  "userEvents/postUserEvent",
+export const postJoinedEvent = createAsyncThunk(
+  "joinedEvents/postJoinedEvent",
   async (newEvent) => {
     try {
       let response = await fetch(eventsApi, {
@@ -40,8 +39,8 @@ export const postUserEvent = createAsyncThunk(
   }
 );
 
-export const updateUserEvent = createAsyncThunk(
-  "userEvents/updateUserEvent",
+export const updateJoinedEvent = createAsyncThunk(
+  "joinedEvents/updateJoinedEvent",
   async (updatedObject) => {
     try {
       const response = await fetch(eventsApi + `/${updatedObject.id}`, {
@@ -61,8 +60,8 @@ export const updateUserEvent = createAsyncThunk(
   }
 );
 
-export const deleteUserEvent = createAsyncThunk(
-  "userEvents/deleteUserEvent",
+export const deleteJoinedEvent = createAsyncThunk(
+  "joinedEvents/deleteJoinedEvent",
   async (id) => {
     try {
       const response = await fetch(eventsApi + `/${id}`, {
@@ -76,20 +75,20 @@ export const deleteUserEvent = createAsyncThunk(
   }
 );
 
-const userEventsSlice = createSlice({
-  name: "userEvents",
+const joinedEventsSlice = createSlice({
+  name: "joinedEvents",
   initialState,
   extraReducers: (builder) => {
     builder
-      .addCase(getUserEvents.fulfilled, (state, action) => {
+      .addCase(getJoinedEvents.fulfilled, (state, action) => {
         console.log(action);
         state.events = action.payload;
       })
-      .addCase(postUserEvent.fulfilled, (state, action) => {
+      .addCase(postJoinedEvent.fulfilled, (state, action) => {
         console.log(action);
         state.events.push(action.payload);
       })
-      .addCase(updateUserEvent.fulfilled, (state, action) => {
+      .addCase(updateJoinedEvent.fulfilled, (state, action) => {
         console.log(action);
         const { id, updatedEvent } = action.payload;
         const index = state.events.findIndex((item) => item.id === id);
@@ -97,7 +96,7 @@ const userEventsSlice = createSlice({
           state.events[index] = updatedEvent;
         }
       })
-      .addCase(deleteUserEvent.fulfilled, (state, action) => {
+      .addCase(deleteJoinedEvent.fulfilled, (state, action) => {
         console.log(action);
         state.events = state.events.filter(
           (item) => item.id !== action.payload.id
@@ -106,4 +105,4 @@ const userEventsSlice = createSlice({
   },
 });
 
-export default userEventsSlice.reducer;
+export default joinedEventsSlice.reducer;

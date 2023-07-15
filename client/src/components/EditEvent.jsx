@@ -8,7 +8,8 @@ import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 
-function EditEvent() {
+function EditEvent(props) {
+  const { event } = props;
   
   return (
     <Form>
