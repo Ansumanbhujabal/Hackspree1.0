@@ -11,6 +11,7 @@ import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { InputGroup } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { createEvent } from "../features/eventsGlobal/eventsGlobalSlice";
+import { postUserEvent } from "../features/userEvents/userEventsSlice";
 
 function NewEventForm(props) {
   const [eventTitle, setEventTitle] = useState("");
@@ -83,6 +84,7 @@ function NewEventForm(props) {
 
     console.log(newEvent);
     dispatch(createEvent(newEvent));
+    dispatch(postUserEvent(newEvent));
 
     setEventTitle("");
     setEventType("");
@@ -116,19 +118,19 @@ function NewEventForm(props) {
         <Form.Select
           required
           aria-label="Default select example"
-          onChange={(e) => setEventHeader(e.target.value)}
+          onChange={(e) => setEventType(e.target.value)}
         >
           <option>Select an Event Type</option>
-          <option value="donation-drive">Donation Drive</option>
-          <option value="fundraiser">Fundraiser</option>
-          <option value="heritage-celebration">Heritage Celebration</option>
-          <option value="farmers-market">Farmer's Market</option>
-          <option value="food-pantry-hot-meals">Food Pantry/Hot Meals</option>
-          <option value="festival">Festival</option>
-          <option value="skill-share">Skill Share</option>
-          <option value="service-project">Service Project</option>
-          <option value="action-event">Action Event</option>
-          <option value="entertainment">Entertainment</option>
+          <option value="Donation Drive">Donation Drive</option>
+          <option value="Fundraiser">Fundraiser</option>
+          <option value="Heritage Celebration">Heritage Celebration</option>
+          <option value="Farmers Market">Farmer's Market</option>
+          <option value="Food PantryHot Meals">Food Pantry/Hot Meals</option>
+          <option value="Festival">Festival</option>
+          <option value="Skill Share">Skill Share</option>
+          <option value="Service Project">Service Project</option>
+          <option value="Action Event">Action Event</option>
+          <option value="Entertainment">Entertainment</option>
         </Form.Select>
       </Form.Group>
 

@@ -8,10 +8,7 @@ import EventModal from "./EventModal";
 import JoinModal from "./JoinModal";
 import RemoveModal from "./RemoveModal";
 import DeleteModal from "./DeleteModal";
-import EditModal from "./EditModal";
-// import moment from "moment";
-
-// Rest of the component code...
+// import EditModal from "./EditModal";
 
 function EventCard(props) {
   const { event } = props;
@@ -20,7 +17,6 @@ function EventCard(props) {
     start,
     end,
     eventType,
-    header,
     ageRanges,
     description,
     location,
@@ -34,6 +30,36 @@ function EventCard(props) {
   function containsEvent(event, list) {
     return list.some((item) => item.id === event.id);
   }
+
+  function getHeader(eventType) {
+    let header = "";
+
+    if (eventType === "Donation Drive") {
+      header = "donation-drive";
+    } else if (eventType === "Fundraiser") {
+      header = "fundraiser";
+    } else if (eventType === "Heritage Celebration") {
+      header = "heritage-celebration";
+    } else if (eventType === "Farmer's Market") {
+      header = "farmers-market";
+    } else if (eventType === "Food Pantry/Hot Meals") {
+      header = "food-pantry-hot-meals";
+    } else if (eventType === "Festival") {
+      header = "festival";
+    } else if (eventType === "Skill Share") {
+      header = "skill-share";
+    } else if (eventType === "Service Project") {
+      header = "service-project";
+    } else if (eventType === "Action Event") {
+      header = "action-event";
+    } else if (eventType === "Entertainment") {
+      header = "entertainment";
+    }
+
+    return header;
+  }
+
+  const header = getHeader(eventType);
 
   return (
     <>
@@ -161,11 +187,11 @@ function EventCard(props) {
                   btnColor={"danger"}
                   tooltip={"Delete this event"}
                 />
-                <OverlayHover
+                {/* <OverlayHover
                   option={<EditModal event={event} />}
                   btnColor={"primary"}
                   tooltip={"Edit this event's details"}
-                />
+                /> */}
               </div>
             )}
           </Card.Text>
