@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const passport = require("passport");
 const authRoute = require("./routes/auth");
+const mailroute = require("./routes/mail");
 const cookieSession = require("cookie-session");
 const passportStrategy = require("./passport");
 const mongoose = require("mongoose");
@@ -39,6 +40,7 @@ app.use(
 );
 
 app.use("/auth", authRoute);
+app.use("/mail", mailroute);
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
