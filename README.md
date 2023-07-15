@@ -15,6 +15,7 @@ Our team members learned new libraries and worked with new technologies. We fami
 We're very proud of learning to work with React Redux and MongoDB, as well as figuring out how to use react-big-calendar to work well for our purposes.
 
 ## What we learned 🙌
+The team learned how to work with new librabries in React and APIs such as Google Maps API, Places API and the Geocoding API as well as working with MongoDB for not only authentication but storage as well.
 
 ## What's next 🚀
 
