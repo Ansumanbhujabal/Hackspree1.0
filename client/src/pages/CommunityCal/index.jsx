@@ -7,7 +7,7 @@ function CommunityCal () {
     const events = useSelector((store) => store.events.events);
     return (
         <>
-        <h1>Chicago Community Calendar</h1>
+        <h1>Chicago CommunityConnect</h1>
         <Basic />
         <div className="container-fluid">
     <div className="event-stream">

@@ -25,6 +25,7 @@ function NewEventForm() {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [location, setLocation] = useState("");
+  const [userId, setUserId] = useState("");
 
   console.log(eventTitle);
   console.log(eventType);
