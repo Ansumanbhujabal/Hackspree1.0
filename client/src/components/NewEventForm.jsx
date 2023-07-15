@@ -43,7 +43,7 @@ function NewEventForm() {
  console.log(startDateSend, startDate);
  console.log(endDateSend, endDate);
 
- console.log(moment(startDate).format("dddd, MMMM Do YYYY, h:mm:ss a"))
+//  console.log(moment(startDate).format("dddd, MMMM Do YYYY, h:mm:ss a"))
 
 
 
@@ -104,7 +104,7 @@ function NewEventForm() {
 
       <Form.Group className="mb-3">
       <Form.Label>Event Type</Form.Label>
-      <Form.Select required aria-label="Default select example" onChange={(e) => setEventHeader(e.target.value)}>
+      <Form.Select required aria-label="Default select example" onChange={(e) => setEventType(e.target.value)}>
       <option>Select an Event Type</option>
       <option value="donation-drive" >Donation Drive</option>
       <option value="fundraiser">Fundraiser</option>

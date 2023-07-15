@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import moment from 'moment';
 
 const initialState = {
     events: [],
@@ -25,12 +26,17 @@ export const createEvent = createAsyncThunk(
   "eventsGlobal/createEvent",
   async (newEvent) => {
     try {
+      const formattedEvent = {
+        ...newEvent,
+        start: moment(newEvent.start).format("YYYY-MM-DD hh:mm a"),
+        end: moment(newEvent.end).format("YYYY-MM-DD hh:mm a"),
+      };
       let response = await fetch(eventsApi, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(newEvent),
+        body: JSON.stringify(formattedEvent),
       });
       return await response.json(); // parse the response body as JSON
     } catch (error) {
