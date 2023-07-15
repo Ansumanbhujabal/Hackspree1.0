@@ -22,6 +22,11 @@ function NewEventForm() {
   const [admissionType, setAdmissionType] = useState("");
   const [admissionPrice, setAdmissionPrice] = useState("");
   const [admissionProceeds, setAdmissionProceeds] = useState("");
+
+  const [startDate, setStartDate] = useState({});
+  const [endDate, setEndDate] = useState(moment('2023-07-01 12:00am'));
+  const [location, setLocation] = useState({});
+
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [location, setLocation] = useState("");
@@ -54,6 +59,7 @@ function NewEventForm() {
         console.error("Error fetching user email:", error);
       });
   }, []);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -107,6 +113,38 @@ function NewEventForm() {
       </Form.Group>
 
       <Form.Group className="mb-3">
+
+      <Form.Label>Event Type</Form.Label>
+      <Form.Select required aria-label="Default select example" onChange={(e) => setEventType(e.target.value)}>
+      <option>Select an Event Type</option>
+      <option value="1">Donation Drive</option>
+      <option value="2">Fundraiser</option>
+      <option value="3">Heritage Celebration</option>
+      <option value="4">Farmer's Market</option>
+      <option value="5">Food Pantry/Hot Meals</option>
+      <option value="6">Festival</option>
+      <option value="7">Skill Share</option>
+      <option value="8">Service Project</option>
+      <option value="9">Action Event</option>
+      <option value="10">Entertainment</option>
+    </Form.Select>
+    </Form.Group>
+    <Form.Group className="mb-3">
+      <Form.Label>Age Ranges</Form.Label>
+      
+      {["For Kids", "Family-friendly", "Ages 13-18", "Adults"].map((age, index) => (
+        <div>
+          <Form.Check
+            label={age}
+            name="group1"
+            type="checkbox"
+            value={age}
+            key={index}
+            {...age}
+            onChange={(e) => setAgeRanges(e.target.value)}
+          />
+          </div>
+
         <Form.Label>Event Type</Form.Label>
         <Form.Select
           required
@@ -126,6 +164,7 @@ function NewEventForm() {
           <option value="entertainment">Entertainment</option>
         </Form.Select>
       </Form.Group>
+
 
       <Form.Group className="mb-3">
         <Form.Label>Age Ranges</Form.Label>
@@ -228,6 +267,39 @@ function NewEventForm() {
       </Form.Group>
 
       <Form.Group className="mb-3">
+
+        <Form.Label>Start Date</Form.Label>
+        <br></br>
+
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+      <DateTimePicker 
+      label="Select start date & time" 
+      // value={value}
+      // defaultValue={moment('2023-07-01 12:00 am')}
+      format="MM-DD-YYYY hh:mm A"
+      // onChange={(newValue) => setStartDate(newValue)}
+      />
+    </LocalizationProvider>
+    </Form.Group>
+    <Form.Group className="mb-3">
+    <Form.Label>End Date</Form.Label>
+    <br></br>
+
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+      <DateTimePicker 
+      label="Select end date & time" 
+      // value={value}
+      // defaultValue={moment('2023-07-01 12:00 am')}
+      format="MM-DD-YYYY hh:mm A"
+      onChange={(newValue) => setEndDate(newValue)} 
+      />
+    </LocalizationProvider>
+    </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label>Location</Form.Label>
+        <Form.Control type="text" placeholder="Location" onChange={(e) => setLocation(e.target.value)} />
+
         <Form.Label>End Date</Form.Label>
         <br />
         <LocalizationProvider dateAdapter={AdapterMoment}>
@@ -246,6 +318,7 @@ function NewEventForm() {
           placeholder="Location"
           onChange={(e) => setLocation(e.target.value)}
         />
+
       </Form.Group>
 
       <Button variant="primary" type="submit">
