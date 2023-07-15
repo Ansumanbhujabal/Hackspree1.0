@@ -9,7 +9,6 @@ function EventDetails(props) {
     start,
     end,
     eventType,
-    header,
     ageRanges,
     description,
     admission,
@@ -18,6 +17,36 @@ function EventDetails(props) {
 
   const startDate = moment(start).format("dddd, MMMM Do YYYY, h:mm a");
   const endDate = moment(end).format("dddd, MMMM Do YYYY, h:mm a");
+
+  function getHeader(eventType) {
+    let header = "";
+
+    if (eventType === "Donation Drive") {
+      header = "donation-drive";
+    } else if (eventType === "Fundraiser") {
+      header = "fundraiser";
+    } else if (eventType === "Heritage Celebration") {
+      header = "heritage-celebration";
+    } else if (eventType === "Farmer's Market") {
+      header = "farmers-market";
+    } else if (eventType === "Food Pantry/Hot Meals") {
+      header = "food-pantry-hot-meals";
+    } else if (eventType === "Festival") {
+      header = "festival";
+    } else if (eventType === "Skill Share") {
+      header = "skill-share";
+    } else if (eventType === "Service Project") {
+      header = "service-project";
+    } else if (eventType === "Action Event") {
+      header = "action-event";
+    } else if (eventType === "Entertainment") {
+      header = "entertainment";
+    }
+
+    return header;
+  }
+
+  const header = getHeader(eventType);
 
   return (
     <Card>
