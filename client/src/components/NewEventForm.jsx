@@ -26,6 +26,7 @@ function NewEventForm() {
   const [endDate, setEndDate] = useState("");
   const [location, setLocation] = useState("");
   const [userId, setUserId] = useState("");
+  const [joinedUsers, setJoinedUsers] = useState([]);
 
   console.log(eventTitle);
   console.log(eventType);
